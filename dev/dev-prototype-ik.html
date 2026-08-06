@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1020" />
+    <title>Babylon.js Runtime IK Prototype</title>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="renderCanvas" aria-label="可拖曳的手臂 IK 示範"></canvas>
+      <aside class="panel">
+        <p class="eyebrow">Runtime IK prototype</p>
+        <h1>拖曳橘色手腕端點</h1>
+        <p>肩膀固定，手肘與前臂會即時連動。目標超出可達範圍時會被限制在手臂長度內。</p>
+        <div class="legend">
+          <span><i class="dot target"></i>IK target</span>
+          <span><i class="dot pole"></i>肘部彎曲方向</span>
+        </div>
+        <output id="status" aria-live="polite">準備中…</output>
+      </aside>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

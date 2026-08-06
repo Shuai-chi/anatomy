@@ -1,0 +1,20 @@
+[
+  {
+    "slang_zh": "上胸",
+    "slang_en": "upper chest",
+    "maps_to_fiber_region": "clavicular_head",
+    "caveat_note": "上/中/下胸不是三條獨立肌肉，是同一條胸大肌因纖維走向不同、隨動作角度改變募集比例；EMG 文獻對「上斜是否真的顯著多練到鎖骨部」證據並不一致（部分研究顯著、部分無顯著差異，特別是受過訓練的舉重者可能募集模式更一致），不能對使用者呈現成「上斜=只練上胸」的絕對說法。"
+  },
+  {
+    "slang_zh": "中胸",
+    "slang_en": "mid chest",
+    "maps_to_fiber_region": "sternocostal_head",
+    "caveat_note": "平板臥推對胸骨部（中胸）的顯著程度在文獻中相對一致，爭議較小。"
+  },
+  {
+    "slang_zh": "下胸",
+    "slang_en": "lower chest",
+    "maps_to_fiber_region": "abdominal_head",
+    "caveat_note": "解剖學上胸大肌的「腹部」起點纖維與胸肋部纖維常被合併討論，能單獨分離腹部頭 EMG 數據的一手文獻較少；下斜臥推/前傾雙槓下推對下胸的偏向性有支持證據，但精細度不如上胸/中胸對比研究。"
+  }
+]

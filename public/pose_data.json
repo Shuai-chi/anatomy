@@ -1,0 +1,1438 @@
+{
+  "_meta": {
+    "_comment": "SKIP THIS KEY WHEN ITERATING EXERCISES. All other top-level keys are exercise_id.",
+    "is_schematic_dataset": true,
+    "provenance": "Angles derived from each exercise's joint_actions field by anatomical reasoning. NOT motion capture, NOT goniometer measurement, NOT from any published kinematics dataset. Intended to make the movement readable at a glance, not to be biomechanically exact.",
+    "phase_convention": "start = beginning of the concentric (the stretched/loaded position, e.g. bar at chest); end = completion of the concentric (e.g. lockout). This matches the direction of each exercise's joint_actions list.",
+    "units": "degrees",
+    "sign_convention": {
+      "shoulder.flexion": "0 = arm at side; positive = arm forward/up in the sagittal plane (relative to the TORSO, so it composes correctly after torso.flexion); negative = extension (arm behind body).",
+      "shoulder.abduction": "0 = arm at side; positive = arm out to the side in the frontal plane. Capped at 120 because the rig has no scapulothoracic joint (true 180 deg elevation needs scapular upward rotation).",
+      "shoulder.horizontal_adduction": "measured at 90 deg abduction; 0 = arm straight out to the side; positive = arm sweeps toward the midline/front; negative = arm sweeps behind the body.",
+      "elbow.flexion": "0 = straight arm; positive = bent. No hyperextension.",
+      "hip.flexion": "0 = anatomical standing; positive = thigh toward chest; negative = extension behind body.",
+      "hip.abduction": "0 = legs together; positive = thigh away from midline.",
+      "knee.flexion": "0 = straight leg; positive = heel toward buttock. No hyperextension.",
+      "ankle.plantarflexion": "0 = neutral; positive = toes pointed down; negative = dorsiflexion (toes toward shin). Matches joint_axes.json rom_deg [-20, 50].",
+      "torso.flexion": "0 = upright; positive = trunk pitched forward. SEE torso_caveat."
+    },
+    "rom_used": {
+      "shoulder.flexion": [
+        -40,
+        120
+      ],
+      "shoulder.abduction": [
+        0,
+        120
+      ],
+      "shoulder.horizontal_adduction": [
+        -30,
+        75
+      ],
+      "elbow.flexion": [
+        0,
+        145
+      ],
+      "hip.flexion": [
+        -15,
+        110
+      ],
+      "knee.flexion": [
+        0,
+        140
+      ],
+      "ankle.plantarflexion": [
+        -20,
+        50
+      ],
+      "torso.flexion": [
+        0,
+        70
+      ]
+    },
+    "no_double_mirroring": "Values are PER-SIDE ABSOLUTE anatomical magnitudes and are already correct for each side as written. The renderer maps DOF -> rig axis and may need a per-side axis sign flip, but must NOT additionally negate the .r values the way the old setBoth() helper did. single_arm_dumbbell_row is deliberately asymmetric and will be destroyed by blind mirroring.",
+    "composition_order": "If composing multiple shoulder DOFs into one rotation, apply abduction (frontal) -> flexion (sagittal) -> horizontal_adduction (transverse). At most 2 shoulder DOFs are non-zero in any single pose here, to limit gimbal ambiguity.",
+    "torso_caveat": "rig_config.json gives segment 'torso' pivot: null, so torso rotation is currently a no-op in the renderer (setPosePhase skips segments without a pivot). torso.flexion is also a LUMPED PROXY: for bent-over lifts (rows, deadlift) the real motion is a hip hinge, but the rig is rooted at the pelvis, so hip flexion would swing the LEGS up instead of pitching the trunk down. Values up to 70 therefore exceed true spinal flexion ROM on purpose. To use them, add a pivot to segment 'torso' near the L5-S1 junction -- derive it from the AABB of the 'Sacrum' / 'Vertebra L5' meshes rather than hardcoding a guess.",
+    "renderer_note": "setPosePhase() currently interpolates identity -> target. This file needs start -> end interpolation (lerp per DOF). Wiring it as identity -> end would make barbell_squat and barbell_deadlift show nothing, because by the phase convention their END pose is near-neutral standing."
+  },
+  "flat_bench_press": {
+    "start": {
+      "shoulder.l": {
+        "abduction": 75,
+        "horizontal_adduction": 0
+      },
+      "shoulder.r": {
+        "abduction": 75,
+        "horizontal_adduction": 0
+      },
+      "elbow.l": {
+        "flexion": 95
+      },
+      "elbow.r": {
+        "flexion": 95
+      }
+    },
+    "end": {
+      "shoulder.l": {
+        "abduction": 45,
+        "horizontal_adduction": 45
+      },
+      "shoulder.r": {
+        "abduction": 45,
+        "horizontal_adduction": 45
+      },
+      "elbow.l": {
+        "flexion": 5
+      },
+      "elbow.r": {
+        "flexion": 5
+      }
+    },
+    "camera_hint": "front",
+    "note": "起始：仰臥、大臂張開約 75 度外展、肘屈曲 95 度（槓在胸口）；結束：推起鎖定，水平內收把手臂夾向身體中線、肘幾乎伸直。用 horizontal_adduction 而非 flexion 是照 joint_actions 寫的「shoulder horizontal adduction」。模型是站姿，僅示意上肢角度。",
+    "is_schematic": true,
+    "confidence": "high"
+  },
+  "incline_barbell_bench_press": {
+    "start": {
+      "shoulder.l": {
+        "abduction": 70,
+        "flexion": 20
+      },
+      "shoulder.r": {
+        "abduction": 70,
+        "flexion": 20
+      },
+      "elbow.l": {
+        "flexion": 100
+      },
+      "elbow.r": {
+        "flexion": 100
+      }
+    },
+    "end": {
+      "shoulder.l": {
+        "abduction": 40,
+        "flexion": 55
+      },
+      "shoulder.r": {
+        "abduction": 40,
+        "flexion": 55
+      },
+      "elbow.l": {
+        "flexion": 8
+      },
+      "elbow.r": {
+        "flexion": 8
+      }
+    },
+    "camera_hint": "front",
+    "note": "上斜角度用肩屈曲 20→55 度表現「往斜上方推」，外展同時收窄。肘 100→8 度。斜板角度本身無法由骨架表現。joint_actions 另列的 horizontal adduction 已折進外展收窄（70→40）裡，不另開第三個肩自由度，以免三軸複合造成萬向鎖式的姿勢失真。",
+    "is_schematic": true,
+    "confidence": "medium"
+  },
+  "decline_barbell_bench_press": {
+    "start": {
+      "shoulder.l": {
+        "abduction": 70,
+        "flexion": -15
+      },
+      "shoulder.r": {
+        "abduction": 70,
+        "flexion": -15
+      },
+      "elbow.l": {
+        "flexion": 100
+      },
+      "elbow.r": {
+        "flexion": 100
+      }
+    },
+    "end": {
+      "shoulder.l": {
+        "abduction": 40,
+        "flexion": 5
+      },
+      "shoulder.r": {
+        "abduction": 40,
+        "flexion": 5
+      },
+      "elbow.l": {
+        "flexion": 8
+      },
+      "elbow.r": {
+        "flexion": 8
+      }
+    },
+    "camera_hint": "front",
+    "note": "下斜臥推：身體呈頭低姿勢，相對於軀幹是向前下方推。本 rig 軀幹靜態，故以肩屈曲角度變化表現推程，方向以資料為準。",
+    "is_schematic": true,
+    "confidence": "medium"
+  },
+  "cable_crossover_low_to_high": {
+    "start": {
+      "shoulder.l": {
+        "abduction": 20,
+        "horizontal_adduction": -15
+      },
+      "shoulder.r": {
+        "abduction": 20,
+        "horizontal_adduction": -15
+      },
+      "elbow.l": {
+        "flexion": 15
+      },
+      "elbow.r": {
+        "flexion": 15
+      }
+    },
+    "end": {
+      "shoulder.l": {
+        "abduction": 95,
+        "horizontal_adduction": 60
+      },
+      "shoulder.r": {
+        "abduction": 95,
+        "horizontal_adduction": 60
+      },
+      "elbow.l": {
+        "flexion": 20
+      },
+      "elbow.r": {
+        "flexion": 20
+      }
+    },
+    "camera_hint": "front",
+    "note": "低位往上夾胸：起始手在體側偏後下方（外展 20、水平外展 -15），結束雙手高舉並在身前交叉（外展 95、水平內收 60）。肘全程維持輕微屈曲，符合 joint_actions 的「elbow slight flexion (isometric)」。",
+    "is_schematic": true,
+    "confidence": "high"
+  },
+  "cable_crossover_high_to_low": {
+    "start": {
+      "shoulder.l": {
+        "abduction": 100,
+        "horizontal_adduction": -10
+      },
+      "shoulder.r": {
+        "abduction": 100,
+        "horizontal_adduction": -10
+      },
+      "elbow.l": {
+        "flexion": 15
+      },
+      "elbow.r": {
+        "flexion": 15
+      }
+    },
+    "end": {
+      "shoulder.l": {
+        "abduction": 25,
+        "horizontal_adduction": 50
+      },
+      "shoulder.r": {
+        "abduction": 25,
+        "horizontal_adduction": 50
+      },
+      "elbow.l": {
+        "flexion": 20
+      },
+      "elbow.r": {
+        "flexion": 20
+      }
+    },
+    "camera_hint": "front",
+    "note": "高位往下夾胸：起始雙手高舉張開（外展 100），結束下拉到腹部前方併攏（外展 25、水平內收 50）。肘全程輕微屈曲。",
+    "is_schematic": true,
+    "confidence": "high"
+  },
+  "forward_lean_parallel_bar_dip": {
+    "start": {
+      "torso": {
+        "flexion": 30
+      },
+      "shoulder.l": {
+        "flexion": -25,
+        "abduction": 35
+      },
+      "shoulder.r": {
+        "flexion": -25,
+        "abduction": 35
+      },
+      "elbow.l": {
+        "flexion": 95
+      },
+      "elbow.r": {
+        "flexion": 95
+      }
+    },
+    "end": {
+      "torso": {
+        "flexion": 30
+      },
+      "shoulder.l": {
+        "flexion": 5,
+        "abduction": 12
+      },
+      "shoulder.r": {
+        "flexion": 5,
+        "abduction": 12
+      },
+      "elbow.l": {
+        "flexion": 5
+      },
+      "elbow.r": {
+        "flexion": 5
+      }
+    },
+    "camera_hint": "front",
+    "note": "前傾雙槓下推：軀幹前傾 30 度（此版本的關鍵 form 條件，不前傾就變三頭主導）。起始肩伸展 -25 度、肘屈曲 95 度；結束撐直、肘 5 度。軀幹前傾需要 torso 有 pivot 才看得到。",
+    "is_schematic": true,
+    "confidence": "medium"
+  },
+  "pull_up_overhand": {
+    "start": {
+      "shoulder.l": {
+        "abduction": 120
+      },
+      "shoulder.r": {
+        "abduction": 120
+      },
+      "elbow.l": {
+        "flexion": 5
+      },
+      "elbow.r": {
+        "flexion": 5
+      }
+    },
+    "end": {
+      "shoulder.l": {
+        "abduction": 40
+      },
+      "shoulder.r": {
+        "abduction": 40
+      },
+      "elbow.l": {
+        "flexion": 125
+      },
+      "elbow.r": {
+        "flexion": 125
+      }
+    },
+    "camera_hint": "back",
+    "note": "正握引體向上：起始懸垂、手臂寬握上舉（外展 120 度，已是無肩胛上旋下的生理上限），結束拉到下巴過槓（外展 40、肘屈曲 125）。外展 120→40 走額狀面，對應 joint_actions 的 shoulder adduction。",
+    "is_schematic": true,
+    "confidence": "high"
+  },
+  "chin_up_underhand": {
+    "start": {
+      "shoulder.l": {
+        "flexion": 120
+      },
+      "shoulder.r": {
+        "flexion": 120
+      },
+      "elbow.l": {
+        "flexion": 10
+      },
+      "elbow.r": {
+        "flexion": 10
+      }
+    },
+    "end": {
+      "shoulder.l": {
+        "flexion": 20
+      },
+      "shoulder.r": {
+        "flexion": 20
+      },
+      "elbow.l": {
+        "flexion": 130
+      },
+      "elbow.r": {
+        "flexion": 130
+      }
+    },
+    "camera_hint": "back",
+    "note": "反握引體向上：矢狀面主導，起始肩屈曲 120 度懸垂，結束肩屈曲 20、肘屈曲 130。與正握的差別在於用 flexion（矢狀面）而非 abduction（額狀面）。前臂旋後無法表現（wrist 在 rig 中未建模）。",
+    "is_schematic": true,
+    "confidence": "high"
+  },
+  "barbell_row": {
+    "start": {
+      "torso": {
+        "flexion": 65
+      },
+      "shoulder.l": {
+        "flexion": 65
+      },
+      "shoulder.r": {
+        "flexion": 65
+      },
+      "elbow.l": {
+        "flexion": 10
+      },
+      "elbow.r": {
+        "flexion": 10
+      },
+      "knee.l": {
+        "flexion": 25
+      },
+      "knee.r": {
+        "flexion": 25
+      },
+      "hip.l": {
+        "flexion": 10
+      },
+      "hip.r": {
+        "flexion": 10
+      }
+    },
+    "end": {
+      "torso": {
+        "flexion": 65
+      },
+      "shoulder.l": {
+        "flexion": 12
+      },
+      "shoulder.r": {
+        "flexion": 12
+      },
+      "elbow.l": {
+        "flexion": 120
+      },
+      "elbow.r": {
+        "flexion": 120
+      },
+      "knee.l": {
+        "flexion": 25
+      },
+      "knee.r": {
+        "flexion": 25
+      },
+      "hip.l": {
+        "flexion": 10
+      },
+      "hip.r": {
+        "flexion": 10
+      }
+    },
+    "camera_hint": "back",
+    "note": "槓鈴划船：軀幹前傾 65 度全程不變。手臂自然垂下時，相對於前傾的軀幹即為肩屈曲 65 度；拉起時肩回到 12 度（大臂貼近軀幹往後）、肘屈曲 120 度。膝微屈 25 度。注意 torso.flexion 是髖鉸鏈的替身（見 _meta.torso_caveat）。",
+    "is_schematic": true,
+    "confidence": "medium"
+  },
+  "lat_pulldown": {
+    "start": {
+      "shoulder.l": {
+        "abduction": 120
+      },
+      "shoulder.r": {
+        "abduction": 120
+      },
+      "elbow.l": {
+        "flexion": 10
+      },
+      "elbow.r": {
+        "flexion": 10
+      },
+      "hip.l": {
+        "flexion": 80
+      },
+      "hip.r": {
+        "flexion": 80
+      },
+      "knee.l": {
+        "flexion": 80
+      },
+      "knee.r": {
+        "flexion": 80
+      }
+    },
+    "end": {
+      "shoulder.l": {
+        "abduction": 45
+      },
+      "shoulder.r": {
+        "abduction": 45
+      },
+      "elbow.l": {
+        "flexion": 115
+      },
+      "elbow.r": {
+        "flexion": 115
+      },
+      "hip.l": {
+        "flexion": 80
+      },
+      "hip.r": {
+        "flexion": 80
+      },
+      "knee.l": {
+        "flexion": 80
+      },
+      "knee.r": {
+        "flexion": 80
+      }
+    },
+    "camera_hint": "back",
+    "note": "滑輪下拉：坐姿（髖屈 80、膝屈 80 全程固定，讓姿勢一眼看出是坐著）。起始雙手上舉外展 120 度，結束下拉到鎖骨前（外展 45、肘屈曲 115）。",
+    "is_schematic": true,
+    "confidence": "high"
+  },
+  "single_arm_dumbbell_row": {
+    "start": {
+      "torso": {
+        "flexion": 70
+      },
+      "shoulder.r": {
+        "flexion": 70
+      },
+      "elbow.r": {
+        "flexion": 10
+      },
+      "shoulder.l": {
+        "flexion": 80
+      },
+      "elbow.l": {
+        "flexion": 20
+      },
+      "hip.l": {
+        "flexion": 60
+      },
+      "knee.l": {
+        "flexion": 85
+      },
+      "hip.r": {
+        "flexion": 5
+      },
+      "knee.r": {
+        "flexion": 10
+      }
+    },
+    "end": {
+      "torso": {
+        "flexion": 70
+      },
+      "shoulder.r": {
+        "flexion": 10
+      },
+      "elbow.r": {
+        "flexion": 120
+      },
+      "shoulder.l": {
+        "flexion": 80
+      },
+      "elbow.l": {
+        "flexion": 20
+      },
+      "hip.l": {
+        "flexion": 60
+      },
+      "knee.l": {
+        "flexion": 85
+      },
+      "hip.r": {
+        "flexion": 5
+      },
+      "knee.r": {
+        "flexion": 10
+      }
+    },
+    "camera_hint": "back",
+    "note": "單臂啞鈴划船：刻意左右不對稱。右臂划船（肩屈 70→10、肘屈 10→120），左臂撐在臥推椅上固定不動，左腳跪在椅上（髖屈 60、膝屈 85），右腳站地。渲染時務必不要再做左右鏡像，否則這個不對稱會被毀掉。",
+    "is_schematic": true,
+    "confidence": "low"
+  },
+  "standing_shoulder_press": {
+    "start": {
+      "shoulder.l": {
+        "abduction": 70
+      },
+      "shoulder.r": {
+        "abduction": 70
+      },
+      "elbow.l": {
+        "flexion": 95
+      },
+      "elbow.r": {
+        "flexion": 95
+      }
+    },
+    "end": {
+      "shoulder.l": {
+        "abduction": 118
+      },
+      "shoulder.r": {
+        "abduction": 118
+      },
+      "elbow.l": {
+        "flexion": 5
+      },
+      "elbow.r": {
+        "flexion": 5
+      }
+    },
+    "camera_hint": "front",
+    "note": "站姿肩推：起始架式（大臂約水平、外展 70、肘屈曲 95），結束過頭鎖定（外展 118、肘 5）。外展上限 118 是因為骨架沒有肩胛上旋，真人過頭的 180 度有一半來自肩胛。",
+    "is_schematic": true,
+    "confidence": "high"
+  },
+  "lateral_raise": {
+    "start": {
+      "shoulder.l": {
+        "abduction": 5
+      },
+      "shoulder.r": {
+        "abduction": 5
+      },
+      "elbow.l": {
+        "flexion": 10
+      },
+      "elbow.r": {
+        "flexion": 10
+      }
+    },
+    "end": {
+      "shoulder.l": {
+        "abduction": 95
+      },
+      "shoulder.r": {
+        "abduction": 95
+      },
+      "elbow.l": {
+        "flexion": 15
+      },
+      "elbow.r": {
+        "flexion": 15
+      }
+    },
+    "camera_hint": "front",
+    "note": "側平舉：單一自由度、最乾淨的一筆。外展 5→95 度，肘全程微屈。",
+    "is_schematic": true,
+    "confidence": "high"
+  },
+  "front_raise": {
+    "start": {
+      "shoulder.l": {
+        "flexion": 0
+      },
+      "shoulder.r": {
+        "flexion": 0
+      },
+      "elbow.l": {
+        "flexion": 10
+      },
+      "elbow.r": {
+        "flexion": 10
+      }
+    },
+    "end": {
+      "shoulder.l": {
+        "flexion": 95
+      },
+      "shoulder.r": {
+        "flexion": 95
+      },
+      "elbow.l": {
+        "flexion": 10
+      },
+      "elbow.r": {
+        "flexion": 10
+      }
+    },
+    "camera_hint": "front",
+    "note": "前平舉：肩屈曲 0→95 度，肘全程接近伸直。同樣是單自由度動作。",
+    "is_schematic": true,
+    "confidence": "high"
+  },
+  "reverse_fly": {
+    "start": {
+      "torso": {
+        "flexion": 55
+      },
+      "shoulder.l": {
+        "flexion": 55,
+        "abduction": 0
+      },
+      "shoulder.r": {
+        "flexion": 55,
+        "abduction": 0
+      },
+      "elbow.l": {
+        "flexion": 20
+      },
+      "elbow.r": {
+        "flexion": 20
+      }
+    },
+    "end": {
+      "torso": {
+        "flexion": 55
+      },
+      "shoulder.l": {
+        "flexion": 8,
+        "abduction": 85
+      },
+      "shoulder.r": {
+        "flexion": 8,
+        "abduction": 85
+      },
+      "elbow.l": {
+        "flexion": 20
+      },
+      "elbow.r": {
+        "flexion": 20
+      }
+    },
+    "camera_hint": "back",
+    "note": "反向飛鳥：軀幹前傾 55 度。起始雙臂自然垂下（相對前傾軀幹＝肩屈曲 55 度），結束水平張開到兩側（外展 85、屈曲降到 8）。肘全程固定 20 度屈曲。",
+    "is_schematic": true,
+    "confidence": "medium"
+  },
+  "barbell_squat": {
+    "start": {
+      "torso": {
+        "flexion": 30
+      },
+      "hip.l": {
+        "flexion": 105
+      },
+      "hip.r": {
+        "flexion": 105
+      },
+      "knee.l": {
+        "flexion": 115
+      },
+      "knee.r": {
+        "flexion": 115
+      },
+      "ankle.l": {
+        "plantarflexion": -18
+      },
+      "ankle.r": {
+        "plantarflexion": -18
+      },
+      "shoulder.l": {
+        "abduction": 55
+      },
+      "shoulder.r": {
+        "abduction": 55
+      },
+      "elbow.l": {
+        "flexion": 90
+      },
+      "elbow.r": {
+        "flexion": 90
+      }
+    },
+    "end": {
+      "torso": {
+        "flexion": 5
+      },
+      "hip.l": {
+        "flexion": 3
+      },
+      "hip.r": {
+        "flexion": 3
+      },
+      "knee.l": {
+        "flexion": 3
+      },
+      "knee.r": {
+        "flexion": 3
+      },
+      "ankle.l": {
+        "plantarflexion": 0
+      },
+      "ankle.r": {
+        "plantarflexion": 0
+      },
+      "shoulder.l": {
+        "abduction": 55
+      },
+      "shoulder.r": {
+        "abduction": 55
+      },
+      "elbow.l": {
+        "flexion": 90
+      },
+      "elbow.r": {
+        "flexion": 90
+      }
+    },
+    "camera_hint": "right",
+    "note": "槓鈴深蹲：起始為蹲到底（髖屈 105、膝屈 115、踝背屈 18、軀幹前傾 30），結束站直。上肢維持扛槓姿勢（外展 55、肘屈 90）全程不變。骨盆根節點會隨髖/膝角度垂直位移以維持腳踝貼地，所以底部會正確下沉、非「坐姿」假動作（v3 修復；僅深蹲/硬舉這類雙腳站立的閉鎖鏈動作套用，坐姿器械類動作不受影響）。",
+    "is_schematic": true,
+    "confidence": "medium",
+    "_camera_hint_note": "side view: squat prime movers are vastus (front) + gluteus_maximus (back); either cardinal front or back view hides one entirely",
+    "pelvis_grounded": true
+  },
+  "barbell_deadlift": {
+    "start": {
+      "torso": {
+        "flexion": 40
+      },
+      "hip.l": {
+        "flexion": 92
+      },
+      "hip.r": {
+        "flexion": 92
+      },
+      "knee.l": {
+        "flexion": 55
+      },
+      "knee.r": {
+        "flexion": 55
+      },
+      "ankle.l": {
+        "plantarflexion": -5
+      },
+      "ankle.r": {
+        "plantarflexion": -5
+      },
+      "shoulder.l": {
+        "flexion": 15
+      },
+      "shoulder.r": {
+        "flexion": 15
+      },
+      "elbow.l": {
+        "flexion": 5
+      },
+      "elbow.r": {
+        "flexion": 5
+      }
+    },
+    "end": {
+      "torso": {
+        "flexion": 2
+      },
+      "hip.l": {
+        "flexion": 0
+      },
+      "hip.r": {
+        "flexion": 0
+      },
+      "knee.l": {
+        "flexion": 3
+      },
+      "knee.r": {
+        "flexion": 3
+      },
+      "ankle.l": {
+        "plantarflexion": 0
+      },
+      "ankle.r": {
+        "plantarflexion": 0
+      },
+      "shoulder.l": {
+        "flexion": 0
+      },
+      "shoulder.r": {
+        "flexion": 0
+      },
+      "elbow.l": {
+        "flexion": 5
+      },
+      "elbow.r": {
+        "flexion": 5
+      }
+    },
+    "camera_hint": "back",
+    "note": "槓鈴硬舉：起始為起槓位（髖屈 92、膝屈 55、軀幹前傾 40、手臂垂直），結束站直鎖定。膝屈曲比深蹲小很多是硬舉與深蹲最主要的可視差異。手肘全程接近伸直（硬舉不該屈肘）。",
+    "is_schematic": true,
+    "confidence": "high",
+    "pelvis_grounded": true
+  },
+  "leg_press": {
+    "start": {
+      "hip.l": {
+        "flexion": 100
+      },
+      "hip.r": {
+        "flexion": 100
+      },
+      "knee.l": {
+        "flexion": 110
+      },
+      "knee.r": {
+        "flexion": 110
+      },
+      "ankle.l": {
+        "plantarflexion": 0
+      },
+      "ankle.r": {
+        "plantarflexion": 0
+      }
+    },
+    "end": {
+      "hip.l": {
+        "flexion": 42
+      },
+      "hip.r": {
+        "flexion": 42
+      },
+      "knee.l": {
+        "flexion": 8
+      },
+      "knee.r": {
+        "flexion": 8
+      },
+      "ankle.l": {
+        "plantarflexion": 8
+      },
+      "ankle.r": {
+        "plantarflexion": 8
+      }
+    },
+    "camera_hint": "front",
+    "note": "腿推：起始深屈（髖 100、膝 110），結束推直但因為是坐姿器械，髖仍維持 42 度屈曲、膝不完全鎖死（8 度）。這個「結束仍屈髖」是腿推與深蹲的關鍵區別。",
+    "is_schematic": true,
+    "confidence": "high"
+  },
+  "leg_extension": {
+    "start": {
+      "hip.l": {
+        "flexion": 85
+      },
+      "hip.r": {
+        "flexion": 85
+      },
+      "knee.l": {
+        "flexion": 90
+      },
+      "knee.r": {
+        "flexion": 90
+      }
+    },
+    "end": {
+      "hip.l": {
+        "flexion": 85
+      },
+      "hip.r": {
+        "flexion": 85
+      },
+      "knee.l": {
+        "flexion": 5
+      },
+      "knee.r": {
+        "flexion": 5
+      }
+    },
+    "camera_hint": "front",
+    "note": "腿伸展：坐姿（髖屈 85 全程固定），單純膝屈 90→5 度。單關節動作，示意最準確的一類。",
+    "is_schematic": true,
+    "confidence": "high"
+  },
+  "leg_curl": {
+    "start": {
+      "hip.l": {
+        "flexion": 8
+      },
+      "hip.r": {
+        "flexion": 8
+      },
+      "knee.l": {
+        "flexion": 5
+      },
+      "knee.r": {
+        "flexion": 5
+      }
+    },
+    "end": {
+      "hip.l": {
+        "flexion": 8
+      },
+      "hip.r": {
+        "flexion": 8
+      },
+      "knee.l": {
+        "flexion": 120
+      },
+      "knee.r": {
+        "flexion": 120
+      }
+    },
+    "camera_hint": "back",
+    "note": "腿彎舉：以俯臥版本表現（髖幾乎中立），單純膝屈 5→120 度。俯臥/坐姿的體位差異無法由骨架表現。",
+    "is_schematic": true,
+    "confidence": "high"
+  },
+  "barbell_hip_thrust": {
+    "start": {
+      "torso": {
+        "flexion": 12
+      },
+      "hip.l": {
+        "flexion": 75
+      },
+      "hip.r": {
+        "flexion": 75
+      },
+      "knee.l": {
+        "flexion": 90
+      },
+      "knee.r": {
+        "flexion": 90
+      },
+      "shoulder.l": {
+        "abduction": 20
+      },
+      "shoulder.r": {
+        "abduction": 20
+      },
+      "elbow.l": {
+        "flexion": 15
+      },
+      "elbow.r": {
+        "flexion": 15
+      }
+    },
+    "end": {
+      "torso": {
+        "flexion": 0
+      },
+      "hip.l": {
+        "flexion": 0
+      },
+      "hip.r": {
+        "flexion": 0
+      },
+      "knee.l": {
+        "flexion": 85
+      },
+      "knee.r": {
+        "flexion": 85
+      },
+      "shoulder.l": {
+        "abduction": 20
+      },
+      "shoulder.r": {
+        "abduction": 20
+      },
+      "elbow.l": {
+        "flexion": 15
+      },
+      "elbow.r": {
+        "flexion": 15
+      }
+    },
+    "camera_hint": "back",
+    "note": "槓鈴臀推：起始臀部落地（髖屈 75、膝屈 90），結束推到頂（髖伸展至 0 度、膝仍屈 85）。膝角度幾乎不變、只有髖角度大幅改變，這正是臀推有別於深蹲的特徵。",
+    "is_schematic": true,
+    "confidence": "high"
+  },
+  "crunch": {
+    "start": {
+      "torso": {
+        "flexion": 0
+      },
+      "hip.l": {
+        "flexion": 10
+      },
+      "hip.r": {
+        "flexion": 10
+      },
+      "knee.l": {
+        "flexion": 90
+      },
+      "knee.r": {
+        "flexion": 90
+      },
+      "shoulder.l": {
+        "flexion": 110
+      },
+      "shoulder.r": {
+        "flexion": 110
+      },
+      "elbow.l": {
+        "flexion": 125
+      },
+      "elbow.r": {
+        "flexion": 125
+      }
+    },
+    "end": {
+      "torso": {
+        "flexion": 45
+      },
+      "hip.l": {
+        "flexion": 75
+      },
+      "hip.r": {
+        "flexion": 75
+      },
+      "knee.l": {
+        "flexion": 90
+      },
+      "knee.r": {
+        "flexion": 90
+      },
+      "shoulder.l": {
+        "flexion": 110
+      },
+      "shoulder.r": {
+        "flexion": 110
+      },
+      "elbow.l": {
+        "flexion": 125
+      },
+      "elbow.r": {
+        "flexion": 125
+      }
+    },
+    "camera_hint": "front",
+    "note": "捲腹的主要動作是脊椎屈曲，但本 rig 的軀幹為靜態，無法呈現。此處以髖屈曲代為表現軀幹捲起的視覺效果——這是模型限制下的替代呈現，不是說捲腹靠髖屈完成。",
+    "is_schematic": true,
+    "confidence": "low"
+  },
+  "plank": {
+    "start": {
+      "torso": {
+        "flexion": 0
+      },
+      "shoulder.l": {
+        "flexion": 85
+      },
+      "shoulder.r": {
+        "flexion": 85
+      },
+      "elbow.l": {
+        "flexion": 90
+      },
+      "elbow.r": {
+        "flexion": 90
+      },
+      "hip.l": {
+        "flexion": 0
+      },
+      "hip.r": {
+        "flexion": 0
+      },
+      "knee.l": {
+        "flexion": 0
+      },
+      "knee.r": {
+        "flexion": 0
+      },
+      "ankle.l": {
+        "plantarflexion": -18
+      },
+      "ankle.r": {
+        "plantarflexion": -18
+      }
+    },
+    "end": {
+      "torso": {
+        "flexion": 0
+      },
+      "shoulder.l": {
+        "flexion": 85
+      },
+      "shoulder.r": {
+        "flexion": 85
+      },
+      "elbow.l": {
+        "flexion": 90
+      },
+      "elbow.r": {
+        "flexion": 90
+      },
+      "hip.l": {
+        "flexion": 0
+      },
+      "hip.r": {
+        "flexion": 0
+      },
+      "knee.l": {
+        "flexion": 0
+      },
+      "knee.r": {
+        "flexion": 0
+      },
+      "ankle.l": {
+        "plantarflexion": -18
+      },
+      "ankle.r": {
+        "plantarflexion": -18
+      }
+    },
+    "camera_hint": "front",
+    "note": "棒式：等長動作，起始與結束姿勢刻意完全相同（joint_actions 就是 isometric spinal stabilization）。姿勢為前臂撐地（肩屈 85、肘屈 90）、髖膝伸直、踝背屈勾腳。滑桿在這一筆不會有動作，這是正確行為而不是 bug。",
+    "is_schematic": true,
+    "confidence": "high",
+    "is_isometric": true
+  },
+  "hanging_leg_raise": {
+    "start": {
+      "torso": {
+        "flexion": 0
+      },
+      "shoulder.l": {
+        "flexion": 115
+      },
+      "shoulder.r": {
+        "flexion": 115
+      },
+      "elbow.l": {
+        "flexion": 5
+      },
+      "elbow.r": {
+        "flexion": 5
+      },
+      "hip.l": {
+        "flexion": 0
+      },
+      "hip.r": {
+        "flexion": 0
+      },
+      "knee.l": {
+        "flexion": 10
+      },
+      "knee.r": {
+        "flexion": 10
+      }
+    },
+    "end": {
+      "torso": {
+        "flexion": 25
+      },
+      "shoulder.l": {
+        "flexion": 115
+      },
+      "shoulder.r": {
+        "flexion": 115
+      },
+      "elbow.l": {
+        "flexion": 5
+      },
+      "elbow.r": {
+        "flexion": 5
+      },
+      "hip.l": {
+        "flexion": 95
+      },
+      "hip.r": {
+        "flexion": 95
+      },
+      "knee.l": {
+        "flexion": 15
+      },
+      "knee.r": {
+        "flexion": 15
+      }
+    },
+    "camera_hint": "front",
+    "note": "懸垂舉腿：上肢懸垂固定（肩屈 115、肘幾乎伸直），起始雙腿自然垂下，結束髖屈曲 95 度把腿舉到水平以上，膝幾乎伸直（10→15 度）以區別於屈膝版本。軀幹末端捲曲 25 度是次要成分。",
+    "is_schematic": true,
+    "confidence": "high"
+  },
+  "barbell_curl": {
+    "start": {
+      "shoulder.l": {
+        "flexion": 0
+      },
+      "shoulder.r": {
+        "flexion": 0
+      },
+      "elbow.l": {
+        "flexion": 10
+      },
+      "elbow.r": {
+        "flexion": 10
+      }
+    },
+    "end": {
+      "shoulder.l": {
+        "flexion": 15
+      },
+      "shoulder.r": {
+        "flexion": 15
+      },
+      "elbow.l": {
+        "flexion": 130
+      },
+      "elbow.r": {
+        "flexion": 130
+      }
+    },
+    "camera_hint": "front",
+    "note": "槓鈴彎舉：肘屈曲 10→130 度，肩幾乎不動（末端 15 度屈曲是頂點時大臂自然的小幅前移）。",
+    "is_schematic": true,
+    "confidence": "high"
+  },
+  "dumbbell_incline_curl": {
+    "start": {
+      "shoulder.l": {
+        "flexion": -35
+      },
+      "shoulder.r": {
+        "flexion": -35
+      },
+      "elbow.l": {
+        "flexion": 5
+      },
+      "elbow.r": {
+        "flexion": 5
+      }
+    },
+    "end": {
+      "shoulder.l": {
+        "flexion": -22
+      },
+      "shoulder.r": {
+        "flexion": -22
+      },
+      "elbow.l": {
+        "flexion": 125
+      },
+      "elbow.r": {
+        "flexion": 125
+      }
+    },
+    "camera_hint": "front",
+    "note": "上斜啞鈴彎舉：關鍵在肩伸展 -35 度（大臂落在身體後方），這是此動作拉長肱二頭長頭的原因，也是它與站姿彎舉唯一的可視差異。肘 5→125 度。",
+    "is_schematic": true,
+    "confidence": "medium"
+  },
+  "dumbbell_hammer_curl": {
+    "start": {
+      "shoulder.l": {
+        "flexion": 0
+      },
+      "shoulder.r": {
+        "flexion": 0
+      },
+      "elbow.l": {
+        "flexion": 10
+      },
+      "elbow.r": {
+        "flexion": 10
+      }
+    },
+    "end": {
+      "shoulder.l": {
+        "flexion": 12
+      },
+      "shoulder.r": {
+        "flexion": 12
+      },
+      "elbow.l": {
+        "flexion": 130
+      },
+      "elbow.r": {
+        "flexion": 130
+      }
+    },
+    "camera_hint": "front",
+    "note": "啞鈴錘式彎舉：關節角度與槓鈴彎舉幾乎相同，因為真正的差別是前臂中立握（旋前旋後），而 rig 的 wrist 標記為 unmodelled、沒有前臂旋轉自由度。誠實說明：目前的骨架看不出錘式與一般彎舉的差別。",
+    "is_schematic": true,
+    "confidence": "medium"
+  },
+  "cable_triceps_pushdown": {
+    "start": {
+      "shoulder.l": {
+        "flexion": 0,
+        "abduction": 10
+      },
+      "shoulder.r": {
+        "flexion": 0,
+        "abduction": 10
+      },
+      "elbow.l": {
+        "flexion": 100
+      },
+      "elbow.r": {
+        "flexion": 100
+      }
+    },
+    "end": {
+      "shoulder.l": {
+        "flexion": 0,
+        "abduction": 10
+      },
+      "shoulder.r": {
+        "flexion": 0,
+        "abduction": 10
+      },
+      "elbow.l": {
+        "flexion": 5
+      },
+      "elbow.r": {
+        "flexion": 5
+      }
+    },
+    "camera_hint": "back",
+    "note": "滑輪三頭下壓：大臂夾緊固定不動（這是動作要領），純肘伸展 100→5 度。單關節，示意可信度高。",
+    "is_schematic": true,
+    "confidence": "high"
+  },
+  "barbell_lying_triceps_extension": {
+    "start": {
+      "shoulder.l": {
+        "flexion": 90
+      },
+      "shoulder.r": {
+        "flexion": 90
+      },
+      "elbow.l": {
+        "flexion": 120
+      },
+      "elbow.r": {
+        "flexion": 120
+      }
+    },
+    "end": {
+      "shoulder.l": {
+        "flexion": 90
+      },
+      "shoulder.r": {
+        "flexion": 90
+      },
+      "elbow.l": {
+        "flexion": 8
+      },
+      "elbow.r": {
+        "flexion": 8
+      }
+    },
+    "camera_hint": "back",
+    "note": "仰臥臂屈伸：仰臥時大臂垂直於軀幹＝肩屈曲 90 度全程固定，肘 120→8 度。模型站立時看起來像「大臂前平舉、前臂放下再伸直」，是仰臥姿勢的站姿等價。",
+    "is_schematic": true,
+    "confidence": "high"
+  },
+  "overhead_triceps_extension": {
+    "start": {
+      "shoulder.l": {
+        "flexion": 118
+      },
+      "shoulder.r": {
+        "flexion": 118
+      },
+      "elbow.l": {
+        "flexion": 125
+      },
+      "elbow.r": {
+        "flexion": 125
+      }
+    },
+    "end": {
+      "shoulder.l": {
+        "flexion": 118
+      },
+      "shoulder.r": {
+        "flexion": 118
+      },
+      "elbow.l": {
+        "flexion": 10
+      },
+      "elbow.r": {
+        "flexion": 10
+      }
+    },
+    "camera_hint": "back",
+    "note": "過頭三頭伸展：肩屈曲 118 度（過頭）全程固定，肘 125→10 度。與仰臥臂屈伸的差別純粹在肩角度（118 vs 90）。",
+    "is_schematic": true,
+    "confidence": "high"
+  }
+}

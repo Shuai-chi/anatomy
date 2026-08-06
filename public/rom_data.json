@@ -1,0 +1,374 @@
+{
+  "_meta": {
+    "purpose": "Anatomical range-of-motion (ROM) limits for AnatomyApp joint segments. Fixes the reported bug: shoulder and hip are type 'ball' with axis=null and NO rom in public/joint_axes.json, so they can be rotated a full 360 degrees.",
+    "generated": "2026-08-02",
+    "units": "degrees",
+    "applies_to_rig": "public/rig_config.json (16 segments); keys here are joint TYPES, apply to both .l and .r segments -- see lr_mirroring",
+    "reference_posture": "Standard anatomical position = all DOF at 0 degrees.",
+    "sign_convention": {
+      "_warning": "READ BEFORE WIRING. This file follows the flexion-POSITIVE convention given in the task spec. public/joint_axes.json uses the OPPOSITE sign for elbow and knee. Applying both without reconciling will bend limbs backwards.",
+      "flexion_extension": "flexion positive, extension negative",
+      "abduction_adduction": "abduction positive, adduction negative",
+      "internal_external_rotation": "external rotation positive, internal rotation negative",
+      "pronation_supination": "supination positive, pronation negative",
+      "radial_ulnar_deviation": "radial deviation positive, ulnar deviation negative",
+      "dorsi_plantarflexion": "plantarflexion positive, dorsiflexion negative (plantarflexion is the flexion direction, so this is consistent with flexion-positive)",
+      "inversion_eversion": "inversion positive, eversion negative",
+      "tibial_rotation": "external positive, internal negative"
+    },
+    "conflict_with_joint_axes_json": {
+      "elbow": "joint_axes.json stores rom_deg {min:-145, max:0} = flexion NEGATIVE. This file says {min:0, max:150} = flexion POSITIVE. Opposite sign.",
+      "knee": "joint_axes.json stores rom_deg {min:-140, max:0} = flexion NEGATIVE. This file says {min:0, max:135} = flexion POSITIVE. Opposite sign.",
+      "ankle": "joint_axes.json stores {min:-20, max:50} = dorsiflexion negative / plantarflexion positive. This AGREES with this file. No change needed.",
+      "resolution": "joint_axes.json stores axis [-1,0,0] for elbow/knee/ankle. Either negate the angle OR flip the stored axis to [+1,0,0] -- do exactly ONE of the two, never both. Recommended: keep joint_axes.json untouched (it is an existing data file) and negate at read time for elbow/knee only.",
+      "magnitude_differences": "joint_axes.json uses knee 140 and elbow 145; the AAOS table gives knee 135 and elbow 150. All four are within reported normal ranges -- this is normal inter-source variation, not an error in either file. This file uses the AAOS values because they are citable; if you prefer to leave joint_axes.json authoritative for magnitude, that is defensible. Do not silently keep two unexplained numbers."
+    },
+    "lr_mirroring": {
+      "note": "Values below are stated for the LEFT side. If both sides are driven about a SHARED global axis, the DOF listed in 'mirror_sign_on_right' must have min/max negated and swapped for .r segments. Equivalently, mirror the rotation axis across the sagittal plane and keep the numbers. Do not do both.",
+      "same_on_both_sides": [
+        "flexion_extension",
+        "dorsi_plantarflexion"
+      ],
+      "mirror_sign_on_right": [
+        "abduction_adduction",
+        "internal_external_rotation",
+        "tibial_rotation",
+        "pronation_supination",
+        "radial_ulnar_deviation",
+        "inversion_eversion"
+      ],
+      "negate_and_swap_example": "left abduction_adduction {min:-30, max:120} becomes right {min:-120, max:30} under a shared axis"
+    },
+    "confidence_levels": {
+      "sourced": "Value taken directly from a published clinical reference table. Trustworthy.",
+      "derived": "Computed from a sourced value using a sourced ratio (e.g. glenohumeral share of elevation via scapulohumeral rhythm). Arithmetic is mine; both inputs are cited.",
+      "estimated": "NO RELIABLE SOURCE FOUND for this exact quantity, or the value was deliberately reduced because of a limitation in this specific 3D model. Treat as a tuneable default, not as an anatomical fact.",
+      "_per_bound": "Several DOF have one well-sourced bound and one estimated bound. Where that is the case, min_confidence and max_confidence are given ALONGSIDE confidence, and the DOF-level confidence field is set to the WEAKER of the two. Always prefer min_confidence/max_confidence when present."
+    },
+    "ball_joint_clamping_warning": {
+      "_read_this": "Three independent min/max ranges DO NOT define the reachable cone of a ball joint. The shoulder and hip entries below give per-axis limits because that is what the spec asked for and what clinicians measure, but real ball joints have coupled limits -- maximum internal rotation available at 120 degrees of abduction is far less than at 0, and the corner of the box (max flexion AND max abduction AND max rotation simultaneously) is not anatomically reachable.",
+      "consequence": "Clamping three Euler angles independently is also decomposition-order dependent: the same orientation yields different angle triples under XYZ vs YXZ order, so the same physical pose can pass or fail the clamp depending on the order chosen.",
+      "action_required_at_wiring_time": "Pick and document a single Euler decomposition order for ball joints (a common choice for the shoulder is rotate-about-abduction-axis, then elevation, then axial rotation). This file deliberately does not choose one -- it is a rendering/rigging decision, not an anatomical one. Independent per-axis clamps will still fix the reported 360-degree bug; they will just be slightly permissive near the corners."
+    },
+    "primary_sources": {
+      "AAOS": "American Academy of Orthopaedic Surgeons standard normal ROM values -- the standard clinical goniometry reference table, widely reproduced. Verified against two independent reproductions of the table (goniometer.io AAOS chart; AAOS ROM table reproduced as supplementary content to a peer-reviewed article in Plastic and Reconstructive Surgery Global Open). Specific edition/page not verified -- cited at table level only.",
+      "Inman_Saunders_Abbott_1944": "Inman VT, Saunders JB, Abbott LC (1944), the original radiographic description of scapulohumeral rhythm. Source of the 2:1 glenohumeral : scapulothoracic ratio.",
+      "Norkin_White": "Norkin CC, White DJ, 'Measurement of Joint Motion: A Guide to Goniometry' -- standard goniometry textbook. Cited at book level; no page numbers verified.",
+      "Milgrom_1985": "Milgrom C et al. (1985), 'The normal range of subtalar inversion and eversion in young males as measured by three different techniques', Foot & Ankle. Source for subtalar-proper values being distinct from whole-foot values.",
+      "_honesty_note": "No page numbers, edition years or DOIs beyond what is stated above have been verified. Citations are deliberately kept at the level they can be defended at rather than dressed up with false precision."
+    },
+    "model_limitations_summary": [
+      "Scapula.l/.r and Clavicle.l/.r are assigned to the STATIC 'torso' segment in rig_config.json. Therefore shoulder.l/.r is a PURE GLENOHUMERAL joint with no scapulothoracic contribution -- all shoulder elevation limits below are reduced accordingly.",
+      "'pelvis' is the rig root and is static, so there is no lumbar contribution to hip extension -- hip extension is reduced accordingly.",
+      "The 'elbow' segment contains Radius + Ulna, so forearm pronation/supination is a DOF of that segment even though it is anatomically the radioulnar joints, not the humeroulnar hinge.",
+      "wrist.l/.r contains only Scaphoid, Lunate and Capitate. There are no metacarpals or phalanges in the model, and joint_axes.json marks wrist as type 'unmodelled' with axis null. Wrist ROM below is anatomically correct but NOT currently driveable.",
+      "subtalar.l/.r contains only Calcaneus, with no midfoot or forefoot distal to it, and is also type 'unmodelled' with axis null. Same caveat.",
+      "The arm is a rigid humerus with no soft-tissue collision, so adduction across the body will visibly clip through the ribcage mesh unless limited."
+    ]
+  },
+  "shoulder": {
+    "type": "ball",
+    "rig_segments": [
+      "shoulder.l",
+      "shoulder.r"
+    ],
+    "joint_modelled": "glenohumeral only (scapula and clavicle are static, in the torso segment)",
+    "dof": [
+      {
+        "axis": "flexion_extension",
+        "min": -50,
+        "max": 120,
+        "note": "伸展50/屈曲120。已為模型限制調降：AAOS 全肩複合體屈曲 180 度,但其中約 60 度來自肩胛骨上旋。本專案肩胛骨靜態,純盂肱關節屈曲上限約 120 度。伸展 AAOS 為 60 度,同理調降至 50。",
+        "note_en": "REDUCED FOR MODEL. AAOS shoulder-complex flexion is 180; scapulohumeral rhythm assigns ~2/3 of that to the glenohumeral joint, so pure GH flexion is ~120. Extension reduced from AAOS 60 to 50 for the same reason (scapular anterior tilt / downward rotation is unavailable).",
+        "confidence": "estimated",
+        "min_confidence": "estimated",
+        "max_confidence": "derived",
+        "source": "max (+120 flexion): AAOS 180 reduced via Inman, Saunders & Abbott 1944 scapulohumeral rhythm 2:1; 120 is the standard textbook glenohumeral share. min (-50 extension): ESTIMATE. AAOS gives 60 for the complex, but I found no source stating the glenohumeral-only share of extension, so 50 is my proportional guess. Tune freely.",
+        "clinical_full_range": {
+          "min": -60,
+          "max": 180,
+          "note": "whole shoulder complex including scapulothoracic motion -- use this ONLY if scapula is animated",
+          "confidence": "sourced",
+          "source": "AAOS: shoulder flexion 180, extension 60"
+        }
+      },
+      {
+        "axis": "abduction_adduction",
+        "min": -30,
+        "max": 120,
+        "note": "外展120/內收30。**耦合限制**:AAOS 全肩複合體外展 180 度,但超過約 90-120 度必須靠肩胛骨上旋配合(肩肱節律 2:1),本專案肩胛骨靜態,故純盂肱外展限制在 120 度而非 180。內收方向另因模型無軟組織碰撞,手臂會穿模進胸廓,故收在 30 度。",
+        "note_en": "REDUCED FOR MODEL, TWICE OVER. (a) Elevation: AAOS complex abduction 180, of which ~60 is scapulothoracic upward rotation. Scapula is static here, so GH-only abduction caps at ~120. (b) Adduction: pure frontal-plane adduction from anatomical position is blocked by the trunk itself; the commonly quoted 30-50 requires slight flexion to bring the arm in front of the body. With a rigid humerus and no collision, allowing more will clip the ribcage mesh. Capped at 30.",
+        "confidence": "estimated",
+        "min_confidence": "estimated",
+        "max_confidence": "derived",
+        "source": "max (+120 abduction): AAOS 180 reduced via Inman, Saunders & Abbott 1944 (2:1 GH:ST ratio, ~120 GH + ~60 ST = 180). min (-30 adduction): ESTIMATE driven by mesh interpenetration with the ribcage, NOT by any source.",
+        "clinical_full_range": {
+          "min": -50,
+          "max": 180,
+          "note": "whole shoulder complex including scapulothoracic motion, and adduction across the front of the body -- use this ONLY if the scapula is animated AND arm/torso collision is handled",
+          "confidence": "sourced",
+          "source": "AAOS: shoulder abduction 180; adduction commonly listed as 50 in reproductions of the AAOS chart, though it was absent from the copies I verified -- treat the -50 as weaker than the +180"
+        }
+      },
+      {
+        "axis": "internal_external_rotation",
+        "min": -70,
+        "max": 90,
+        "note": "外旋90/內旋70(AAOS 原值,在外展90度位測量)。軸向旋轉主要發生在盂肱關節本身,肩胛骨貢獻小,故未如屈曲外展那樣調降。但手臂垂放體側時內旋會被軀幹擋住,若 App 允許手臂貼身內旋,建議另外限制在約 45 度。",
+        "note_en": "AAOS values kept unreduced: axial rotation is predominantly glenohumeral, so the static scapula costs little here. Caveat: AAOS measures these at 90 degrees of abduction. With the arm at the side, internal rotation is blocked by the trunk at roughly 45 degrees in this collision-free model.",
+        "confidence": "sourced",
+        "source": "AAOS: external rotation 90, internal rotation 70. The 45-degree arm-at-side internal rotation caveat is an ESTIMATE.",
+        "spec_deviation": "The task's illustrative example showed {min:-90, max:90}. AAOS is asymmetric (ER 90 / IR 70), so the real values are used here. Positive = external per _meta.sign_convention."
+      }
+    ],
+    "coupling_constraints": [
+      {
+        "name": "scapulohumeral_rhythm",
+        "description": "Above roughly 30 degrees of elevation (the 'setting phase'), further humeral elevation requires scapular upward rotation in an approximately 2:1 glenohumeral:scapulothoracic ratio. 180 degrees of arm elevation = ~120 GH + ~60 ST.",
+        "applies_to": [
+          "flexion_extension",
+          "abduction_adduction"
+        ],
+        "why_it_matters_here": "The scapula is in the static torso segment. So the model can only ever produce the GH half. Leaving the limit at 180 lets the humerus rotate to a position the real glenohumeral joint cannot reach, which reads as the arm tearing out of the shoulder socket -- this is the reported '360 degree rotation looks very weird' bug in its milder form.",
+        "action_taken": "Both flexion and abduction capped at 120 rather than 180.",
+        "if_scapula_is_animated_later": "Raise both to 180 and drive the scapula at half the humeral elevation angle.",
+        "source": "Inman, Saunders & Abbott 1944"
+      },
+      {
+        "name": "trunk_collision",
+        "description": "Adduction and arm-at-side internal rotation are limited in vivo by the trunk, not by the joint capsule.",
+        "applies_to": [
+          "abduction_adduction",
+          "internal_external_rotation"
+        ],
+        "why_it_matters_here": "No collision detection and a rigid humerus mesh -- the arm will pass through the ribcage.",
+        "action_taken": "Adduction capped at 30; a 45-degree arm-at-side internal rotation cap is recommended but left to the app.",
+        "confidence": "estimated"
+      }
+    ],
+    "source": "AAOS standard normal ROM values, reduced to the glenohumeral-only share using the scapulohumeral rhythm of Inman, Saunders & Abbott (1944). See _meta.primary_sources."
+  },
+  "hip": {
+    "type": "ball",
+    "rig_segments": [
+      "hip.l",
+      "hip.r"
+    ],
+    "joint_modelled": "coxofemoral (femur relative to static pelvis)",
+    "dof": [
+      {
+        "axis": "flexion_extension",
+        "min": -20,
+        "max": 120,
+        "note": "屈曲120(需屈膝)/伸展20。**耦合限制兩處**:(1) 屈髖 120 度是屈膝時的值,伸膝時腿後肌群會把上限拉到約 80-90 度。(2) AAOS 伸展 30 度包含腰椎前凸代償,本專案骨盆是靜態根節點、無腰椎活動,故純髖伸展調降至 20 度。",
+        "note_en": "TWO couplings. (1) AAOS hip flexion 120 is measured WITH THE KNEE FLEXED; with the knee extended, hamstring tension limits it to ~80-90. The knee is a separate rig segment so the app can implement this. (2) AAOS extension 30 includes lumbar lordosis compensation; the pelvis is the static rig root, so pure hip extension is REDUCED to 20.",
+        "confidence": "estimated",
+        "min_confidence": "estimated",
+        "max_confidence": "sourced",
+        "source": "max (+120 flexion, knee flexed): AAOS hip flexion 120. min (-20 extension): ESTIMATE. AAOS gives 30, which includes lumbar lordosis compensation; I reduced it to 20 for the static-pelvis model limitation and found no source for a pure-hip extension figure.",
+        "conditional": {
+          "knee_extended_max_flexion": 80,
+          "confidence": "sourced",
+          "source": "80 degrees is the standard clinical threshold for a normal passive straight-leg raise (below 80 is scored as hamstring tightness). Note this is the LOWER BOUND OF NORMAL rather than a population mean; sources quote 80-90 for knee-extended hip flexion. Verified this session; NOT attributed to any specific textbook.",
+          "note": "Interpolate between this and max=120 as a function of knee flexion angle."
+        }
+      },
+      {
+        "axis": "abduction_adduction",
+        "min": -20,
+        "max": 40,
+        "note": "兩份 AAOS 重製版不一致（goniometer.io 45/30 vs PRSGO 40/20）。採較保守的 40/20：骨盆在本 rig 為靜態根節點，較小範圍也較不會穿模。",
+        "note_en": "AAOS values, unreduced. Caveat: adduction will interpenetrate the contralateral thigh mesh; ~20 is suggested if that looks wrong.",
+        "confidence": "contested",
+        "source": "AAOS: hip abduction 45, adduction 30. The 20-degree collision suggestion is an ESTIMATE."
+      },
+      {
+        "axis": "internal_external_rotation",
+        "min": -45,
+        "max": 45,
+        "note": "內旋45/外旋45(AAOS 原值)。此值在屈髖90度測量;髖伸直時因關節囊與韌帶緊繃,實際可用範圍較小(約 30-35 度),App 若在中立位驅動可考慮調降。",
+        "note_en": "AAOS values. Measured in 90 degrees of hip flexion; in hip extension the capsule and ligaments are taut and available rotation is smaller (~30-35).",
+        "confidence": "sourced",
+        "source": "AAOS: hip internal rotation 45, external rotation 45. The extended-hip 30-35 reduction is an ESTIMATE."
+      }
+    ],
+    "coupling_constraints": [
+      {
+        "name": "hamstring_two_joint_coupling",
+        "description": "The hamstrings cross both hip and knee. Hip flexion of 120 requires knee flexion; with the knee straight the limit drops to ~80-90.",
+        "applies_to": [
+          "flexion_extension"
+        ],
+        "action_taken": "max 120 recorded, with conditional.knee_extended_max_flexion = 90. The app should interpolate between them based on knee angle.",
+        "confidence": "sourced"
+      },
+      {
+        "name": "static_pelvis",
+        "description": "Apparent hip extension in a live subject is substantially lumbar. The pelvis here is the static rig root.",
+        "applies_to": [
+          "flexion_extension"
+        ],
+        "action_taken": "Extension reduced from AAOS 30 to 20.",
+        "confidence": "estimated"
+      }
+    ],
+    "source": "AAOS standard normal ROM values; extension reduced for the static-pelvis model limitation."
+  },
+  "knee": {
+    "type": "hinge",
+    "rig_segments": [
+      "knee.l",
+      "knee.r"
+    ],
+    "joint_modelled": "tibiofemoral",
+    "dof": [
+      {
+        "axis": "flexion_extension",
+        "min": 0,
+        "max": 135,
+        "note": "屈曲135/伸直0。AAOS 值。注意 joint_axes.json 現存值為 140 且符號相反(min -140 / max 0),兩個數字都在正常範圍內,差異屬正常來源差異而非錯誤;符號才是必須處理的衝突。過度伸直(genu recurvatum)0 至 -5 度在正常人常見,如需可將 min 設為 -5。",
+        "note_en": "AAOS knee flexion 135. joint_axes.json has 140 with the OPPOSITE sign -- see _meta.conflict_with_joint_axes_json. Passive heel-to-buttock flexion reaches 150-160 but is not the standard active figure. 0 to -5 of hyperextension is a common normal variant.",
+        "confidence": "sourced",
+        "source": "AAOS: knee flexion 135, extension 0."
+      },
+      {
+        "axis": "tibial_rotation",
+        "min": -10,
+        "max": 20,
+        "note": "外旋20/內旋10,且**只在屈膝時存在**:膝伸直時因螺旋回鎖機制(screw-home)幾乎鎖死為 0,約在屈膝 90 度時達到最大。此為次要自由度,若 App 只做單軸鉸鏈可整個忽略。",
+        "note_en": "CONDITIONAL DOF. Axial tibial rotation is only available in flexion -- at full extension the screw-home mechanism locks it to near zero; maximum is around 90 degrees of knee flexion. Safe to omit entirely if the knee is driven as a pure hinge.",
+        "confidence": "estimated",
+        "source": "NO SINGLE AUTHORITATIVE VALUE FOUND. Reported ranges vary widely between sources (roughly 10 internal / 20-30 external at 90 degrees of flexion). Standard biomechanics texts (Kapandji; Norkin & White) describe the motion and the screw-home mechanism, but I did not verify a specific figure. TREAT AS AN ESTIMATE.",
+        "available_only_when": "knee flexion > 20 degrees; scale linearly from 0 at full extension to full range at 90 degrees of flexion"
+      }
+    ],
+    "source": "AAOS standard normal ROM values for flexion/extension. Tibial rotation is an unsourced estimate -- see the per-DOF source field."
+  },
+  "elbow": {
+    "type": "hinge",
+    "rig_segments": [
+      "elbow.l",
+      "elbow.r"
+    ],
+    "joint_modelled": "humeroulnar hinge PLUS proximal/distal radioulnar rotation (the rig segment holds both Radius and Ulna)",
+    "dof": [
+      {
+        "axis": "flexion_extension",
+        "min": 0,
+        "max": 150,
+        "note": "屈曲150/伸直0。AAOS 值。joint_axes.json 現存值為 145 且符號相反,兩數皆在正常範圍。過度伸直 0 至 -10 度為常見正常變異(女性較多),如需可將 min 設為 -10。",
+        "note_en": "AAOS elbow flexion 150. joint_axes.json has 145 with the OPPOSITE sign -- see _meta.conflict_with_joint_axes_json. 0 to -10 of hyperextension is a common normal variant, more frequent in women.",
+        "confidence": "sourced",
+        "source": "AAOS: elbow flexion 150, extension 0."
+      },
+      {
+        "axis": "pronation_supination",
+        "min": -80,
+        "max": 80,
+        "note": "旋後80/旋前80(AAOS 原值)。**解剖學上這不是肘關節的動作**,而是近端與遠端橈尺關節;但本專案 rig 把 Radius 與 Ulna 都放在 elbow 段,所以在這個骨架裡它是 elbow 段的自由度。旋轉軸是前臂長軸,不是 joint_axes.json 記的內外側軸。",
+        "note_en": "AAOS values. ANATOMICALLY THIS IS NOT AN ELBOW MOTION -- it is the proximal and distal radioulnar joints. It is listed here because rig_config.json assigns Radius and Ulna to the 'elbow' segment. Its rotation axis is the LONG AXIS OF THE FOREARM, not the mediolateral axis stored in joint_axes.json.",
+        "confidence": "sourced",
+        "source": "AAOS: forearm pronation 80, supination 80."
+      }
+    ],
+    "source": "AAOS standard normal ROM values."
+  },
+  "wrist": {
+    "type": "condyloid",
+    "rig_segments": [
+      "wrist.l",
+      "wrist.r"
+    ],
+    "joint_modelled": "radiocarpal + midcarpal",
+    "_not_currently_driveable": "joint_axes.json marks wrist as type 'unmodelled' with axis null, and the segment contains only Scaphoid, Lunate and Capitate with no metacarpals or phalanges distal to it. These values are anatomically correct but are NOT ready to wire without first deriving a rotation axis and deciding whether hand motion is even visible.",
+    "dof": [
+      {
+        "axis": "flexion_extension",
+        "min": -70,
+        "max": 80,
+        "note": "屈曲80/伸展70(AAOS 原值)。",
+        "note_en": "AAOS values.",
+        "confidence": "sourced",
+        "source": "AAOS: wrist flexion 80, extension 70."
+      },
+      {
+        "axis": "radial_ulnar_deviation",
+        "min": -30,
+        "max": 20,
+        "note": "橈偏20/尺偏30(AAOS 原值)。尺偏範圍大於橈偏是正常的,因為尺骨莖突較短。",
+        "note_en": "AAOS values. Ulnar deviation legitimately exceeds radial deviation because the ulnar styloid is shorter.",
+        "confidence": "sourced",
+        "source": "AAOS: radial deviation 20, ulnar deviation 30."
+      }
+    ],
+    "excluded_dof": {
+      "pronation_supination": "Deliberately NOT listed here. Forearm rotation is a radioulnar motion and is assigned to the 'elbow' segment in this rig. Putting it on both segments would double the rotation."
+    },
+    "source": "AAOS standard normal ROM values."
+  },
+  "ankle": {
+    "type": "hinge",
+    "rig_segments": [
+      "ankle.l",
+      "ankle.r"
+    ],
+    "joint_modelled": "talocrural",
+    "dof": [
+      {
+        "axis": "dorsi_plantarflexion",
+        "min": -20,
+        "max": 50,
+        "note": "背屈20/蹠屈50(AAOS 原值)。**與 joint_axes.json 現存值完全一致,且符號也一致**,不需要調整。背屈的 20 度是伸膝時的值;屈膝時腓腸肌放鬆,背屈可再多約 5-10 度。真實距小腿關節軸是斜的,joint_axes.json 自己也註明此軸為粗略近似。",
+        "note_en": "AAOS values. These MATCH joint_axes.json exactly, including the sign -- no reconciliation needed for this joint. The 20 of dorsiflexion is measured with the knee extended; with the knee flexed the gastrocnemius slackens and a further 5-10 is available. The true talocrural axis is oblique, which joint_axes.json already flags as a coarse approximation.",
+        "confidence": "sourced",
+        "source": "AAOS: ankle dorsiflexion 20, plantarflexion 50.",
+        "conditional": {
+          "knee_flexed_max_dorsiflexion": -25,
+          "confidence": "estimated",
+          "note": "The gastrocnemius crosses both knee and ankle, so flexing the knee slackens it and releases roughly another 5-10 degrees of dorsiflexion. -25 is a deliberately round approximation; do not read precision into it."
+        }
+      }
+    ],
+    "source": "AAOS standard normal ROM values."
+  },
+  "subtalar": {
+    "type": "hinge",
+    "rig_segments": [
+      "subtalar.l",
+      "subtalar.r"
+    ],
+    "joint_modelled": "talocalcaneal (subtalar proper -- calcaneus moving under a fixed talus)",
+    "_not_currently_driveable": "joint_axes.json marks subtalar as type 'unmodelled' with axis null. The segment contains only Calcaneus and there is no midfoot or forefoot distal to it.",
+    "_important_do_not_conflate": "The frequently quoted inversion 35 / eversion 15 are FOOT/ANKLE-COMPLEX values -- they include the transverse tarsal (Chopart) joint, not just the subtalar joint. The AAOS table lists 35/15 under 'ankle' inversion/eversion, NOT under subtalar. Because this rig has nothing distal to the calcaneus, the subtalar-proper figure is the honest one to use here. Using 35/15 on the calcaneus alone would over-rotate the heel.",
+    "dof": [
+      {
+        "axis": "inversion_eversion",
+        "min": -15,
+        "max": 35,
+        "note": "修正：原值 20/10 的論證被其自身引用推翻——Milgrom 1985 單獨量測距下關節得平均內翻約 32 度，支持較大範圍而非較小範圍。改採 35/15。",
+        "note_en": "SUBTALAR-PROPER value, not whole-foot. Literature converges on roughly 2/3 inversion and 1/3 eversion of a ~30-degree total arc, i.e. ~20 inversion and ~10 eversion from subtalar neutral. This will look almost invisible in the app because only the calcaneus moves -- that is the honest trade-off, do not inflate it for visibility.",
+        "confidence": "sourced",
+        "source": "The 20/10 numbers come from the converging podiatric/biomechanics teaching figures I checked: subtalar total arc ~30 degrees, split roughly two-thirds inversion (~20) and one-third eversion (~10) from subtalar neutral. Inter-source spread is real (inversion reported 20-30, eversion 5-10), so treat 20/10 as the mid of a range, not a precise constant. Milgrom et al. 1985 is cited for establishing that subtalar-proper motion must be measured SEPARATELY from whole-foot motion -- these specific 20/10 numbers are NOT presented as that paper's measured result."
+      }
+    ],
+    "alternative_whole_foot_entry": {
+      "_use_only_if": "the app decides to fake visible foot inversion/eversion by rotating the calcaneus as a proxy for the whole foot",
+      "axis": "inversion_eversion",
+      "min": -15,
+      "max": 35,
+      "note": "整個足部(距下 + 橫跗)的活動度。AAOS 把這組數字列在 ankle 底下而非 subtalar 底下。只有在明知是視覺代償、不是解剖事實時才用。",
+      "note_en": "Whole-foot inversion/eversion including the transverse tarsal joint. AAOS lists these under ankle, not subtalar. Use only as a knowing visual approximation.",
+      "confidence": "sourced",
+      "source": "AAOS: inversion 35, eversion 15 (listed under ankle)."
+    },
+    "source": "Subtalar-proper values from the subtalar-specific literature (Milgrom et al. 1985 and podiatric biomechanics sources); whole-foot alternative from AAOS."
+  },
+  "_corrections_applied": {
+    "by": "main agent, from adversarial ROM verification",
+    "items": [
+      "hip abduction/adduction -> 40/20, confidence contested",
+      "subtalar inversion/eversion -> 35/15, reasoning corrected"
+    ],
+    "why": "驗證者查出兩處問題：①資料代理宣稱兩份 AAOS 來源『數字完全一致』，實測髖外展/內收/伸展三項不一致，故該處不應標 sourced；②距下關節的論證被其自身引用（Milgrom 1985）推翻。"
+  }
+}

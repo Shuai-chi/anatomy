@@ -1,0 +1,374 @@
+{
+  "latissimus_dorsi": {
+    "prefixes": [
+      "Latissimus dorsi muscle"
+    ],
+    "meshes": [
+      "Latissimus dorsi muscle.l",
+      "Latissimus dorsi muscle.r"
+    ]
+  },
+  "teres_major": {
+    "prefixes": [
+      "Teres major muscle"
+    ],
+    "meshes": [
+      "Teres major muscle.l",
+      "Teres major muscle.r"
+    ]
+  },
+  "teres_minor": {
+    "prefixes": [
+      "Teres minor muscle"
+    ],
+    "meshes": [
+      "Teres minor muscle.l",
+      "Teres minor muscle.r"
+    ]
+  },
+  "trapezius_upper": {
+    "prefixes": [
+      "Descending part of trapezius muscle"
+    ],
+    "meshes": [
+      "Descending part of trapezius muscle.l",
+      "Descending part of trapezius muscle.r"
+    ]
+  },
+  "trapezius_middle": {
+    "prefixes": [
+      "Transverse part of trapezius muscle"
+    ],
+    "meshes": [
+      "Transverse part of trapezius muscle.l",
+      "Transverse part of trapezius muscle.r"
+    ]
+  },
+  "trapezius_lower": {
+    "prefixes": [
+      "Ascending part of trapezius muscle"
+    ],
+    "meshes": [
+      "Ascending part of trapezius muscle.l",
+      "Ascending part of trapezius muscle.r"
+    ]
+  },
+  "rhomboids": {
+    "prefixes": [
+      "Rhomboid major muscle",
+      "Rhomboid minor muscle"
+    ],
+    "meshes": [
+      "Rhomboid major muscle.l",
+      "Rhomboid major muscle.r",
+      "Rhomboid minor muscle.l",
+      "Rhomboid minor muscle.r"
+    ]
+  },
+  "erector_spinae": {
+    "prefixes": [
+      "Longissimus",
+      "Iliocostalis",
+      "Spinalis",
+      "Multifidus",
+      "Semispinalis"
+    ],
+    "meshes": [
+      "Iliocostalis colli muscle.r",
+      "Iliocostalis lumborum muscle.l",
+      "Iliocostalis lumborum muscle.r",
+      "Iliocostalis thoracis muscle.l",
+      "Iliocostalis thoracis muscle.r",
+      "Longissimus capitis muscle.l",
+      "Longissimus capitis muscle.r",
+      "Longissimus colli muscle.l",
+      "Longissimus colli muscle.r",
+      "Longissimus thoracis muscle.l",
+      "Longissimus thoracis muscle.r",
+      "Multifidus colli muscle.l",
+      "Multifidus colli muscle.r",
+      "Multifidus lumborum muscle.l",
+      "Multifidus lumborum muscle.r",
+      "Multifidus thoracis muscle.l",
+      "Multifidus thoracis muscle.r",
+      "Semispinalis colli muscle.l",
+      "Semispinalis colli muscle.r",
+      "Semispinalis thoracis muscle.l",
+      "Semispinalis thoracis muscle.r",
+      "Spinalis colli muscle.l",
+      "Spinalis colli muscle.r",
+      "Spinalis thoracis muscle.l",
+      "Spinalis thoracis muscle.r"
+    ]
+  },
+  "deltoid_anterior": {
+    "prefixes": [
+      "Clavicular part of deltoid muscle"
+    ],
+    "meshes": [
+      "Clavicular part of deltoid muscle.l",
+      "Clavicular part of deltoid muscle.r"
+    ]
+  },
+  "deltoid_lateral": {
+    "prefixes": [
+      "Acromial part of deltoid muscle"
+    ],
+    "meshes": [
+      "Acromial part of deltoid muscle.l",
+      "Acromial part of deltoid muscle.r"
+    ]
+  },
+  "deltoid_posterior": {
+    "prefixes": [
+      "Scapular spinal part of deltoid muscle"
+    ],
+    "meshes": [
+      "Scapular spinal part of deltoid muscle.l",
+      "Scapular spinal part of deltoid muscle.r"
+    ]
+  },
+  "supraspinatus": {
+    "prefixes": [
+      "Supraspinatus muscle"
+    ],
+    "meshes": [
+      "Supraspinatus muscle.l",
+      "Supraspinatus muscle.r"
+    ]
+  },
+  "infraspinatus": {
+    "prefixes": [
+      "Infraspinatus muscle"
+    ],
+    "meshes": [
+      "Infraspinatus muscle.l",
+      "Infraspinatus muscle.r"
+    ]
+  },
+  "biceps_brachii": {
+    "prefixes": [
+      "Long head of biceps brachii",
+      "Short head of biceps brachii"
+    ],
+    "meshes": [
+      "Long head of biceps brachii.l",
+      "Long head of biceps brachii.r",
+      "Short head of biceps brachii.l",
+      "Short head of biceps brachii.r"
+    ]
+  },
+  "triceps_brachii": {
+    "prefixes": [
+      "Long head of triceps brachii",
+      "Lateral head of triceps brachii",
+      "Medial head of triceps brachii"
+    ],
+    "meshes": [
+      "Lateral head of triceps brachii.l",
+      "Lateral head of triceps brachii.r",
+      "Long head of triceps brachii.l",
+      "Long head of triceps brachii.r",
+      "Medial head of triceps brachii.l",
+      "Medial head of triceps brachii.r"
+    ]
+  },
+  "brachialis": {
+    "prefixes": [
+      "Brachialis muscle"
+    ],
+    "meshes": [
+      "Brachialis muscle.l",
+      "Brachialis muscle.r"
+    ]
+  },
+  "brachioradialis": {
+    "prefixes": [
+      "Brachioradialis muscle"
+    ],
+    "meshes": [
+      "Brachioradialis muscle.l",
+      "Brachioradialis muscle.r"
+    ]
+  },
+  "anconeus": {
+    "prefixes": [
+      "Anconeus muscle"
+    ],
+    "meshes": [
+      "Anconeus muscle.l",
+      "Anconeus muscle.r"
+    ]
+  },
+  "gluteus_maximus": {
+    "prefixes": [
+      "Gluteus maximus muscle"
+    ],
+    "meshes": [
+      "Gluteus maximus muscle.l",
+      "Gluteus maximus muscle.r"
+    ]
+  },
+  "gluteus_medius": {
+    "prefixes": [
+      "Gluteus medius muscle"
+    ],
+    "meshes": [
+      "Gluteus medius muscle.l",
+      "Gluteus medius muscle.r"
+    ]
+  },
+  "iliopsoas": {
+    "prefixes": [
+      "Psoas major",
+      "Iliacus muscle"
+    ],
+    "meshes": [
+      "Iliacus muscle.l",
+      "Iliacus muscle.r",
+      "Psoas major.l",
+      "Psoas major.r"
+    ]
+  },
+  "adductor_magnus": {
+    "prefixes": [
+      "Adductor magnus"
+    ],
+    "meshes": [
+      "Adductor magnus.l",
+      "Adductor magnus.r"
+    ]
+  },
+  "rectus_femoris": {
+    "prefixes": [
+      "Rectus femoris muscle"
+    ],
+    "meshes": [
+      "Rectus femoris muscle.l",
+      "Rectus femoris muscle.r"
+    ]
+  },
+  "vastus_muscles": {
+    "prefixes": [
+      "Vastus lateralis muscle",
+      "Vastus medialis muscle",
+      "Vastus intermedius muscle"
+    ],
+    "meshes": [
+      "Vastus intermedius muscle.l",
+      "Vastus intermedius muscle.r",
+      "Vastus lateralis muscle.l",
+      "Vastus lateralis muscle.r",
+      "Vastus medialis muscle.l",
+      "Vastus medialis muscle.r"
+    ]
+  },
+  "hamstrings": {
+    "prefixes": [
+      "Long head of biceps femoris",
+      "Short head of biceps femoris",
+      "Semitendinosus muscle",
+      "Semimembranosus muscle"
+    ],
+    "meshes": [
+      "Long head of biceps femoris.l",
+      "Long head of biceps femoris.r",
+      "Semimembranosus muscle.l",
+      "Semimembranosus muscle.r",
+      "Semitendinosus muscle.l",
+      "Semitendinosus muscle.r",
+      "Short head of biceps femoris.l",
+      "Short head of biceps femoris.r"
+    ]
+  },
+  "rectus_abdominis": {
+    "prefixes": [
+      "Rectus abdominis muscle"
+    ],
+    "meshes": [
+      "Rectus abdominis muscle.l",
+      "Rectus abdominis muscle.r"
+    ]
+  },
+  "obliques": {
+    "prefixes": [
+      "External abdominal oblique muscle",
+      "Internal abdominal oblique muscle"
+    ],
+    "meshes": [
+      "External abdominal oblique muscle.l",
+      "External abdominal oblique muscle.r",
+      "Internal abdominal oblique muscle.l",
+      "Internal abdominal oblique muscle.r"
+    ]
+  },
+  "transversus_abdominis": {
+    "prefixes": [
+      "Transversus abdominis muscle"
+    ],
+    "meshes": [
+      "Transversus abdominis muscle.l",
+      "Transversus abdominis muscle.r"
+    ]
+  },
+  "pectoralis_major": {
+    "prefixes": [
+      "Clavicular head of pectoralis major muscle",
+      "Sternocostal head of pectoralis major muscle",
+      "(Abdominal part of pectoralis major muscle)"
+    ],
+    "meshes": [
+      "(Abdominal part of pectoralis major muscle).l",
+      "(Abdominal part of pectoralis major muscle).r",
+      "Clavicular head of pectoralis major muscle.l",
+      "Clavicular head of pectoralis major muscle.r",
+      "Sternocostal head of pectoralis major muscle.l",
+      "Sternocostal head of pectoralis major muscle.r"
+    ]
+  },
+  "pec_major_clavicular": {
+    "prefixes": [
+      "Clavicular head of pectoralis major muscle"
+    ],
+    "meshes": [
+      "Clavicular head of pectoralis major muscle.l",
+      "Clavicular head of pectoralis major muscle.r"
+    ]
+  },
+  "pec_major_sternocostal": {
+    "prefixes": [
+      "Sternocostal head of pectoralis major muscle"
+    ],
+    "meshes": [
+      "Sternocostal head of pectoralis major muscle.l",
+      "Sternocostal head of pectoralis major muscle.r"
+    ]
+  },
+  "pec_major_abdominal": {
+    "prefixes": [
+      "(Abdominal part of pectoralis major muscle)"
+    ],
+    "meshes": [
+      "(Abdominal part of pectoralis major muscle).l",
+      "(Abdominal part of pectoralis major muscle).r"
+    ]
+  },
+  "pectoralis_minor": {
+    "prefixes": [
+      "Pectoralis minor muscle"
+    ],
+    "meshes": [
+      "Pectoralis minor muscle.l",
+      "Pectoralis minor muscle.r"
+    ]
+  },
+  "serratus_anterior": {
+    "prefixes": [
+      "Serratus anterior muscle"
+    ],
+    "meshes": [
+      "Serratus anterior muscle.l",
+      "Serratus anterior muscle.r"
+    ]
+  }
+}

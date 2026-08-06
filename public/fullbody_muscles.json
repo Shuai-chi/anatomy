@@ -1,0 +1,640 @@
+[
+  {
+    "muscle_id": "latissimus_dorsi",
+    "ta_name": "Musculus latissimus dorsi",
+    "common_name_en": "Latissimus Dorsi",
+    "common_name_zh": "背闊肌",
+    "origin": "Spinous processes of T7-L5, thoracolumbar fascia, iliac crest, inferior 3 or 4 ribs and inferior angle of scapula",
+    "insertion": "Floor of intertubercular groove of the humerus",
+    "primary_actions": [
+      {
+        "joint": "shoulder",
+        "movement": "extension",
+        "plane": "sagittal"
+      },
+      {
+        "joint": "shoulder",
+        "movement": "adduction",
+        "plane": "frontal"
+      },
+      {
+        "joint": "shoulder",
+        "movement": "internal_rotation",
+        "plane": "transverse"
+      }
+    ],
+    "innervation": "Thoracodorsal nerve",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Latissimus_dorsi_muscle (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "muscle_id": "teres_major",
+    "ta_name": "Musculus teres major",
+    "common_name_en": "Teres Major",
+    "common_name_zh": "大圓肌",
+    "origin": "Posterior surface of the inferior angle of the scapula",
+    "insertion": "Medial lip of the intertubercular sulcus of the humerus",
+    "primary_actions": [
+      {
+        "joint": "shoulder",
+        "movement": "extension",
+        "plane": "sagittal"
+      },
+      {
+        "joint": "shoulder",
+        "movement": "adduction",
+        "plane": "frontal"
+      },
+      {
+        "joint": "shoulder",
+        "movement": "internal_rotation",
+        "plane": "transverse"
+      }
+    ],
+    "innervation": "Lower subscapular nerve",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Teres_major_muscle (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "muscle_id": "trapezius_upper",
+    "ta_name": "Pars descendens musculi trapezii",
+    "parent_muscle": "trapezius",
+    "fiber_region": "upper_fibers",
+    "common_name_en": "Upper Trapezius",
+    "common_name_zh": "斜方肌上束",
+    "origin": "External occipital protuberance, nuchal ligament, medial third of superior nuchal line",
+    "insertion": "Lateral third of clavicle, acromion process",
+    "primary_actions": [
+      {
+        "joint": "scapula",
+        "movement": "elevation",
+        "plane": "frontal"
+      },
+      {
+        "joint": "scapula",
+        "movement": "upward_rotation",
+        "plane": "frontal"
+      }
+    ],
+    "innervation": "Accessory nerve (CN XI)",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Trapezius (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "muscle_id": "trapezius_middle",
+    "ta_name": "Pars transversa musculi trapezii",
+    "parent_muscle": "trapezius",
+    "fiber_region": "middle_fibers",
+    "common_name_en": "Middle Trapezius",
+    "common_name_zh": "斜方肌中束",
+    "origin": "Spinous processes of C7-T3",
+    "insertion": "Medial margin of the acromion, superior lip of spine of scapula",
+    "primary_actions": [
+      {
+        "joint": "scapula",
+        "movement": "retraction",
+        "plane": "transverse"
+      }
+    ],
+    "innervation": "Accessory nerve (CN XI)",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Trapezius (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "muscle_id": "trapezius_lower",
+    "ta_name": "Pars ascendens musculi trapezii",
+    "parent_muscle": "trapezius",
+    "fiber_region": "lower_fibers",
+    "common_name_en": "Lower Trapezius",
+    "common_name_zh": "斜方肌下束",
+    "origin": "Spinous processes of T4-T12",
+    "insertion": "Tubercle at apex of spine of scapula",
+    "primary_actions": [
+      {
+        "joint": "scapula",
+        "movement": "depression",
+        "plane": "frontal"
+      },
+      {
+        "joint": "scapula",
+        "movement": "upward_rotation",
+        "plane": "frontal"
+      }
+    ],
+    "innervation": "Accessory nerve (CN XI)",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Trapezius (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "muscle_id": "rhomboids",
+    "ta_name": "Musculi rhomboidei",
+    "common_name_en": "Rhomboids",
+    "common_name_zh": "菱形肌",
+    "origin": "Nuchal ligament, spinous processes of C7 to T5 vertebrae",
+    "insertion": "Medial border of the scapula",
+    "primary_actions": [
+      {
+        "joint": "scapula",
+        "movement": "retraction",
+        "plane": "transverse"
+      },
+      {
+        "joint": "scapula",
+        "movement": "downward_rotation",
+        "plane": "frontal"
+      }
+    ],
+    "innervation": "Dorsal scapular nerve",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Rhomboid_muscles (fetched 2026-08-01)"
+    ],
+    "ta_category": "group_label",
+    "note": "This is a collective group label, not a single TA leaf term."
+  },
+  {
+    "muscle_id": "erector_spinae",
+    "ta_name": "Musculus erector spinae",
+    "common_name_en": "Erector Spinae",
+    "common_name_zh": "豎脊肌",
+    "origin": "Sacrum, iliac crest, spinous processes of lower lumbar and thoracic vertebrae",
+    "insertion": "Ribs, spinous processes of thoracic and cervical vertebrae",
+    "primary_actions": [
+      {
+        "joint": "spine",
+        "movement": "extension",
+        "plane": "sagittal"
+      }
+    ],
+    "innervation": "Posterior branches of spinal nerves",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Erector_spinae_muscles (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "muscle_id": "deltoid_anterior",
+    "ta_name": "Pars clavicularis musculi deltoidei",
+    "parent_muscle": "deltoid",
+    "fiber_region": "anterior_fibers",
+    "common_name_en": "Anterior Deltoid",
+    "common_name_zh": "三角肌前束",
+    "origin": "Anterior border and upper surface of the lateral third of the clavicle",
+    "insertion": "Deltoid tuberosity of humerus",
+    "primary_actions": [
+      {
+        "joint": "shoulder",
+        "movement": "flexion",
+        "plane": "sagittal"
+      },
+      {
+        "joint": "shoulder",
+        "movement": "internal_rotation",
+        "plane": "transverse"
+      }
+    ],
+    "innervation": "Axillary nerve",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Deltoid_muscle (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "muscle_id": "deltoid_lateral",
+    "ta_name": "Pars acromialis musculi deltoidei",
+    "parent_muscle": "deltoid",
+    "fiber_region": "lateral_fibers",
+    "common_name_en": "Lateral Deltoid",
+    "common_name_zh": "三角肌中束",
+    "origin": "Lateral margin and upper surface of the acromion",
+    "insertion": "Deltoid tuberosity of humerus",
+    "primary_actions": [
+      {
+        "joint": "shoulder",
+        "movement": "abduction",
+        "plane": "frontal"
+      }
+    ],
+    "innervation": "Axillary nerve",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Deltoid_muscle (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "muscle_id": "deltoid_posterior",
+    "ta_name": "Pars spinalis musculi deltoidei",
+    "parent_muscle": "deltoid",
+    "fiber_region": "posterior_fibers",
+    "common_name_en": "Posterior Deltoid",
+    "common_name_zh": "三角肌後束",
+    "origin": "Lower lip of the posterior border of the spine of the scapula",
+    "insertion": "Deltoid tuberosity of humerus",
+    "primary_actions": [
+      {
+        "joint": "shoulder",
+        "movement": "extension",
+        "plane": "sagittal"
+      },
+      {
+        "joint": "shoulder",
+        "movement": "horizontal_abduction",
+        "plane": "transverse"
+      },
+      {
+        "joint": "shoulder",
+        "movement": "external_rotation",
+        "plane": "transverse"
+      }
+    ],
+    "innervation": "Axillary nerve",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Deltoid_muscle (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "muscle_id": "supraspinatus",
+    "ta_name": "Musculus supraspinatus",
+    "common_name_en": "Supraspinatus",
+    "common_name_zh": "棘上肌",
+    "origin": "Supraspinous fossa of scapula",
+    "insertion": "Superior facet of greater tubercle of humerus",
+    "primary_actions": [
+      {
+        "joint": "shoulder",
+        "movement": "abduction",
+        "plane": "frontal"
+      }
+    ],
+    "innervation": "Suprascapular nerve",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Supraspinatus_muscle (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "muscle_id": "infraspinatus",
+    "ta_name": "Musculus infraspinatus",
+    "common_name_en": "Infraspinatus",
+    "common_name_zh": "棘下肌",
+    "origin": "Infraspinous fossa of the scapula",
+    "insertion": "Middle facet of greater tubercle of the humerus",
+    "primary_actions": [
+      {
+        "joint": "shoulder",
+        "movement": "external_rotation",
+        "plane": "transverse"
+      }
+    ],
+    "innervation": "Suprascapular nerve",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Infraspinatus_muscle (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "muscle_id": "biceps_brachii",
+    "ta_name": "Musculus biceps brachii",
+    "common_name_en": "Biceps Brachii",
+    "common_name_zh": "肱二頭肌",
+    "origin": "Short head: coracoid process of the scapula. Long head: supraglenoid tubercle",
+    "insertion": "Radial tuberosity and bicipital aponeurosis into deep fascia on medial part of forearm",
+    "primary_actions": [
+      {
+        "joint": "elbow",
+        "movement": "flexion",
+        "plane": "sagittal"
+      },
+      {
+        "joint": "radioulnar",
+        "movement": "supination",
+        "plane": "transverse"
+      }
+    ],
+    "innervation": "Musculocutaneous nerve",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Biceps (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "muscle_id": "triceps_brachii",
+    "ta_name": "Musculus triceps brachii",
+    "common_name_en": "Triceps Brachii",
+    "common_name_zh": "肱三頭肌",
+    "origin": "Long head: infraglenoid tubercle of scapula. Lateral/Medial head: posterior humerus",
+    "insertion": "Olecranon process of ulna",
+    "primary_actions": [
+      {
+        "joint": "elbow",
+        "movement": "extension",
+        "plane": "sagittal"
+      }
+    ],
+    "innervation": "Radial nerve",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Triceps (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "muscle_id": "gluteus_maximus",
+    "ta_name": "Musculus gluteus maximus",
+    "common_name_en": "Gluteus Maximus",
+    "common_name_zh": "臀大肌",
+    "origin": "Gluteal surface of ilium, lumbar fascia, sacrum, sacrotuberous ligament",
+    "insertion": "Gluteal tuberosity of the femur and iliotibial tract",
+    "primary_actions": [
+      {
+        "joint": "hip",
+        "movement": "extension",
+        "plane": "sagittal"
+      },
+      {
+        "joint": "hip",
+        "movement": "external_rotation",
+        "plane": "transverse"
+      }
+    ],
+    "innervation": "Inferior gluteal nerve",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Gluteus_maximus (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "muscle_id": "gluteus_medius",
+    "ta_name": "Musculus gluteus medius",
+    "common_name_en": "Gluteus Medius",
+    "common_name_zh": "臀中肌",
+    "origin": "Gluteal surface of ilium, under gluteus maximus",
+    "insertion": "Greater trochanter of the femur",
+    "primary_actions": [
+      {
+        "joint": "hip",
+        "movement": "abduction",
+        "plane": "frontal"
+      }
+    ],
+    "innervation": "Superior gluteal nerve",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Gluteus_medius (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "muscle_id": "rectus_femoris",
+    "ta_name": "Musculus rectus femoris",
+    "parent_muscle": "quadriceps_femoris",
+    "fiber_region": "rectus_femoris",
+    "common_name_en": "Rectus Femoris",
+    "common_name_zh": "股直肌",
+    "origin": "Anterior inferior iliac spine and the exterior surface of the bony ridge which forms the groove on the iliac portion of the acetabulum",
+    "insertion": "Patellar tendon as part of the quadriceps femoris",
+    "primary_actions": [
+      {
+        "joint": "knee",
+        "movement": "extension",
+        "plane": "sagittal"
+      },
+      {
+        "joint": "hip",
+        "movement": "flexion",
+        "plane": "sagittal"
+      }
+    ],
+    "innervation": "Femoral nerve",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Rectus_femoris_muscle (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "muscle_id": "vastus_muscles",
+    "ta_name": "Musculi vasti",
+    "parent_muscle": "quadriceps_femoris",
+    "fiber_region": "vastus_group",
+    "common_name_en": "Vastus Muscles (Lateralis, Medialis, Intermedius)",
+    "common_name_zh": "股廣肌群（外側、內側、中間）",
+    "origin": "Femur (anterior, lateral, and medial surfaces)",
+    "insertion": "Patellar tendon as part of the quadriceps femoris",
+    "primary_actions": [
+      {
+        "joint": "knee",
+        "movement": "extension",
+        "plane": "sagittal"
+      }
+    ],
+    "innervation": "Femoral nerve",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Quadriceps_femoris_muscle (fetched 2026-08-01)"
+    ],
+    "ta_category": "group_label",
+    "note": "This is a collective group label, not a single TA leaf term."
+  },
+  {
+    "muscle_id": "hamstrings",
+    "ta_name": "Musculi ischiocrurales",
+    "common_name_en": "Hamstrings (Biceps Femoris, Semitendinosus, Semimembranosus)",
+    "common_name_zh": "膕繩肌（股二頭肌、半腱肌、半膜肌）",
+    "origin": "Ischial tuberosity (long heads) and linea aspera of femur (short head of biceps femoris)",
+    "insertion": "Tibia and fibula",
+    "primary_actions": [
+      {
+        "joint": "knee",
+        "movement": "flexion",
+        "plane": "sagittal"
+      },
+      {
+        "joint": "hip",
+        "movement": "extension",
+        "plane": "sagittal"
+      }
+    ],
+    "innervation": "Sciatic nerve",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Hamstring (fetched 2026-08-01)"
+    ],
+    "ta_category": "group_label",
+    "note": "This is a collective group label, not a single TA leaf term."
+  },
+  {
+    "muscle_id": "rectus_abdominis",
+    "ta_name": "Musculus rectus abdominis",
+    "common_name_en": "Rectus Abdominis",
+    "common_name_zh": "腹直肌",
+    "origin": "Pubic crest and pubic symphysis",
+    "insertion": "Costal cartilages of ribs 5-7, xiphoid process of sternum",
+    "primary_actions": [
+      {
+        "joint": "spine",
+        "movement": "flexion",
+        "plane": "sagittal"
+      }
+    ],
+    "innervation": "Thoraco-abdominal nerves (T7-T11)",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Rectus_abdominis_muscle (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "muscle_id": "obliques",
+    "ta_name": "Musculi obliqui abdominis",
+    "common_name_en": "Abdominal Obliques (External & Internal)",
+    "common_name_zh": "腹斜肌（內外）",
+    "origin": "Lower 8 ribs (external), thoracolumbar fascia and iliac crest (internal)",
+    "insertion": "Linea alba, pubic crest, inferior borders of lower ribs",
+    "primary_actions": [
+      {
+        "joint": "spine",
+        "movement": "rotation",
+        "plane": "transverse"
+      },
+      {
+        "joint": "spine",
+        "movement": "lateral_flexion",
+        "plane": "frontal"
+      }
+    ],
+    "innervation": "Lower intercostal nerves, iliohypogastric nerve",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Abdominal_external_oblique_muscle (fetched 2026-08-01)"
+    ],
+    "ta_category": "group_label",
+    "note": "This is a collective group label, not a single TA leaf term."
+  },
+  {
+    "muscle_id": "transversus_abdominis",
+    "ta_name": "Musculus transversus abdominis",
+    "common_name_en": "Transversus Abdominis",
+    "common_name_zh": "腹橫肌",
+    "origin": "Iliac crest, inguinal ligament, thoracolumbar fascia, and costal cartilages 7-12",
+    "insertion": "Xiphoid process, linea alba, pubic crest",
+    "primary_actions": [
+      {
+        "joint": "abdomen",
+        "movement": "compression",
+        "plane": "transverse"
+      }
+    ],
+    "innervation": "Lower intercostal nerves, iliohypogastric nerve",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Transverse_abdominal_muscle (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "muscle_id": "teres_minor",
+    "ta_name": "Musculus teres minor",
+    "common_name_en": "Teres Minor",
+    "common_name_zh": "小圓肌",
+    "origin": "Lateral border of the scapula",
+    "insertion": "Inferior facet of greater tubercle of the humerus",
+    "primary_actions": [
+      {
+        "joint": "shoulder",
+        "movement": "external_rotation",
+        "plane": "transverse"
+      }
+    ],
+    "innervation": "Axillary nerve",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Teres_minor_muscle"
+    ]
+  },
+  {
+    "muscle_id": "iliopsoas",
+    "ta_name": "Musculus iliopsoas",
+    "ta_category": "group_label",
+    "note": "Group label for psoas major and iliacus",
+    "common_name_en": "Iliopsoas",
+    "common_name_zh": "髂腰肌",
+    "origin": "Iliac fossa (iliacus) and lumbar vertebrae (psoas major)",
+    "insertion": "Lesser trochanter of the femur",
+    "primary_actions": [
+      {
+        "joint": "hip",
+        "movement": "flexion",
+        "plane": "sagittal"
+      }
+    ],
+    "innervation": "Femoral nerve and lumbar plexus",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Iliopsoas"
+    ]
+  },
+  {
+    "muscle_id": "adductor_magnus",
+    "ta_name": "Musculus adductor magnus",
+    "common_name_en": "Adductor Magnus",
+    "common_name_zh": "大內收肌",
+    "origin": "Inferior ramus of pubis, ramus of ischium, and ischial tuberosity",
+    "insertion": "Linea aspera and adductor tubercle of femur",
+    "primary_actions": [
+      {
+        "joint": "hip",
+        "movement": "adduction",
+        "plane": "frontal"
+      },
+      {
+        "joint": "hip",
+        "movement": "extension",
+        "plane": "sagittal"
+      }
+    ],
+    "innervation": "Obturator nerve and tibial part of sciatic nerve",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Adductor_magnus_muscle"
+    ]
+  },
+  {
+    "muscle_id": "brachialis",
+    "ta_name": "Musculus brachialis",
+    "common_name_en": "Brachialis",
+    "common_name_zh": "肱肌",
+    "origin": "Distal half of anterior surface of humerus",
+    "insertion": "Coronoid process and tuberosity of ulna",
+    "primary_actions": [
+      {
+        "joint": "elbow",
+        "movement": "flexion",
+        "plane": "sagittal"
+      }
+    ],
+    "innervation": "Musculocutaneous nerve (with a small contribution from the radial nerve)",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Brachialis_muscle (fetched 2026-08-02)"
+    ]
+  },
+  {
+    "muscle_id": "brachioradialis",
+    "ta_name": "Musculus brachioradialis",
+    "common_name_en": "Brachioradialis",
+    "common_name_zh": "肱橈肌",
+    "origin": "Lateral supracondylar ridge of humerus",
+    "insertion": "Styloid process of radius",
+    "primary_actions": [
+      {
+        "joint": "elbow",
+        "movement": "flexion",
+        "plane": "sagittal"
+      }
+    ],
+    "innervation": "Radial nerve",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Brachioradialis (fetched 2026-08-02)"
+    ]
+  },
+  {
+    "muscle_id": "anconeus",
+    "ta_name": "Musculus anconeus",
+    "common_name_en": "Anconeus",
+    "common_name_zh": "肘肌",
+    "origin": "Lateral epicondyle of humerus",
+    "insertion": "Lateral surface of olecranon and superior part of posterior surface of ulna",
+    "primary_actions": [
+      {
+        "joint": "elbow",
+        "movement": "extension",
+        "plane": "sagittal"
+      }
+    ],
+    "innervation": "Radial nerve",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Anconeus_muscle (fetched 2026-08-02)"
+    ]
+  }
+]
