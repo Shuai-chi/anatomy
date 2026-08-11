@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>肌肉起止點張力連動</title>
+    <style>
+      :root { color-scheme:dark; font-family:Inter,"Noto Sans TC",system-ui,sans-serif; background:#0b1020; color:#eef2ff; }
+      * { box-sizing:border-box; } html,body,#app { width:100%; height:100%; margin:0; overflow:hidden; } #app { position:relative; }
+      #renderCanvas { display:block; width:100%; height:100%; outline:0; touch-action:none; }
+      .panel { position:absolute; top:1rem; left:1rem; width:min(29rem,calc(100% - 2rem)); max-height:calc(100% - 2rem); overflow:auto; padding:1rem 1.15rem; border:1px solid rgb(148 163 184 / 25%); border-radius:1rem; background:rgb(10 16 32 / 92%); box-shadow:0 1rem 3rem rgb(0 0 0 / 34%); backdrop-filter:blur(12px); }
+      .eyebrow { margin:0 0 .3rem; color:#fb923c; font-size:.7rem; font-weight:750; letter-spacing:.12em; text-transform:uppercase; } h1 { margin:0 0 .7rem; font-size:1.25rem; } h2 { margin:1rem 0 .42rem; color:#94a3b8; font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; }
+      .notice { padding:.65rem .75rem; border-left:4px solid #f59e0b; border-radius:.45rem; background:rgb(180 83 9 / 18%); color:#fde68a; font-size:.77rem; line-height:1.5; }
+      .readout { display:grid; gap:.4rem; } .row,.muscle { padding:.52rem .6rem; border:1px solid rgb(59 130 246 / 20%); border-radius:.5rem; background:rgb(59 130 246 / 8%); font-size:.78rem; line-height:1.45; } .row { display:grid; grid-template-columns:5.2rem minmax(0,1fr); gap:.5rem; } .key { color:#64748b; } .value { color:#cbd5e1; overflow-wrap:anywhere; }
+      .muscle { border-color:rgb(251 146 60 / 25%); background:rgb(124 45 18 / 16%); margin-bottom:.42rem; } .muscle strong { color:#fed7aa; } .detail { color:#cbd5e1; margin-top:.18rem; } .detail.passive { color:#fde68a; } .pull { color:#93c5fd; margin-top:.18rem; }
+      button { width:100%; margin-top:.85rem; padding:.58rem; border:1px solid rgb(251 146 60 / 35%); border-radius:.5rem; background:rgb(251 146 60 / 13%); color:#fdba74; font:inherit; cursor:pointer; } #status { margin-top:.7rem; color:#86efac; font:.7rem ui-monospace,monospace; line-height:1.4; }
+      #hint { position:absolute; right:1rem; bottom:1rem; max-width:34rem; padding:.45rem .65rem; border-radius:.4rem; background:rgb(10 16 32 / 72%); color:#94a3b8; font-size:.7rem; text-align:right; }
+      @media (max-width:640px) { .panel { top:.55rem; left:.55rem; width:calc(100% - 1.1rem); max-height:calc(100% - 1.1rem); } #hint { display:none; } }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="renderCanvas"></canvas>
+      <aside class="panel" aria-label="肌肉起止點張力連動面板">
+        <p class="eyebrow">WP7-A · attachment geometry</p><h1>肌肉起止點張力連動</h1>
+        <div class="notice"><strong>B-lite 被動張力估計，不是完整力學模擬。</strong><br />此頁實算附著點間的相對長度與角度導數，並以 Rajagopal2016 的 Hill-type 參數估算正規化被動張力；不含肌肉繞行、逆向運動學或力矩求解，也不會真的推動骨盆。本頁的直線起止點幾何與 Rajagopal2016 實際（含繞行）肌腱長度未經校準，部分肌肉（如股直肌）即使真實應變在增加，被動張力估計仍可能停在 0——這是幾何落差，不代表該肌肉真的沒有被動張力。</div>
+        <h2>目前姿勢</h2><div class="readout"><div class="row"><span class="key">拖曳關節</span><span class="value" id="draggedJoint">無</span></div><div class="row"><span class="key">跨關節肌</span><span class="value" id="summary">載入中</span></div></div>
+        <h2>被拉長的肌肉</h2><div id="tensionList" aria-live="polite"></div>
+        <button id="resetPose" type="button">重置姿勢</button><div id="status" role="status">正在載入附著點與全身模型…</div><div class="detail">被動張力估計參數來源：Rajagopal et al. (2016) <i>Full-body musculoskeletal model for muscle-driven simulation of human gait</i>, IEEE TBME｜模型資料 SimTK.org（MIT 授權）｜<a href="https://doi.org/10.1109/TBME.2016.2586891">DOI</a></div>
+      </aside>
+      <div id="hint">拖曳橘色關節球改變姿勢 · 橘紅色越深代表相對靜止姿勢拉長越多 · 拖曳空白處旋轉視角</div>
+    </div>
+    <script type="module" src="/src/tension.ts"></script>
+  </body>
+</html>

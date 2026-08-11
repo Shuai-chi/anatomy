@@ -1,0 +1,364 @@
+{
+  "Vastus intermedius muscle|r": {
+    "max_isometric_force": 1697.36065573771,
+    "optimal_fiber_length": 0.0993,
+    "tendon_slack_length": 0.202210670345763,
+    "pennation_angle_at_optimal": 0.06309973,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.7,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": "vasint_r"
+  },
+  "Vastus lateralis muscle|r": {
+    "max_isometric_force": 5148.76721311476,
+    "optimal_fiber_length": 0.0994,
+    "tendon_slack_length": 0.220601284834603,
+    "pennation_angle_at_optimal": 0.25286729,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.7,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": "vaslat_r"
+  },
+  "Vastus medialis muscle|r": {
+    "max_isometric_force": 2747.82295081966,
+    "optimal_fiber_length": 0.0968,
+    "tendon_slack_length": 0.199904270842317,
+    "pennation_angle_at_optimal": 0.42222253,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.7,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": "vasmed_r"
+  },
+  "Sartorius muscle|r": {
+    "max_isometric_force": 249.413114754098,
+    "optimal_fiber_length": 0.403,
+    "tendon_slack_length": 0.123999830194402,
+    "pennation_angle_at_optimal": 0.02613542,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.7,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": "sart_r"
+  },
+  "Semitendinosus muscle|r": {
+    "max_isometric_force": 591.295081967214,
+    "optimal_fiber_length": 0.193,
+    "tendon_slack_length": 0.24719894503751,
+    "pennation_angle_at_optimal": 0.241295,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.7,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": "semiten_r"
+  },
+  "Rectus femoris muscle|r": {
+    "max_isometric_force": 2191.74098360656,
+    "optimal_fiber_length": 0.0759,
+    "tendon_slack_length": 0.448493537399412,
+    "pennation_angle_at_optimal": 0.2170149,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.7,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": "recfem_r"
+  },
+  "Gluteus maximus muscle|r": {
+    "max_isometric_force": 3337.583606557384,
+    "optimal_fiber_length": 0.157,
+    "tendon_slack_length": 0.062148215336640035,
+    "pennation_angle_at_optimal": 0.36793665666666664,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.6999999999999998,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": [
+      "glmax1_r",
+      "glmax2_r",
+      "glmax3_r"
+    ]
+  },
+  "Gluteus medius muscle|r": {
+    "max_isometric_force": 2729.7576946,
+    "optimal_fiber_length": 0.073,
+    "tendon_slack_length": 0.055432828914749495,
+    "pennation_angle_at_optimal": 0.31655591,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.6999999999999998,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": [
+      "glmed1_r",
+      "glmed2_r",
+      "glmed3_r"
+    ]
+  },
+  "Long head of biceps femoris|r": {
+    "max_isometric_force": 1313.18360655738,
+    "optimal_fiber_length": 0.0976,
+    "tendon_slack_length": 0.325226647516457,
+    "pennation_angle_at_optimal": 0.17591823,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.7,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": "bflh_r"
+  },
+  "Adductor longus|r": {
+    "max_isometric_force": 916.8,
+    "optimal_fiber_length": 0.1082,
+    "tendon_slack_length": 0.131799363342026,
+    "pennation_angle_at_optimal": 0.13777039,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.7,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": "addlong_r"
+  },
+  "Gracilis muscle|r": {
+    "max_isometric_force": 281.311475409836,
+    "optimal_fiber_length": 0.2278,
+    "tendon_slack_length": 0.172013810564373,
+    "pennation_angle_at_optimal": 0.17200156,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.7,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": "grac_r"
+  },
+  "Adductor magnus|r": {
+    "max_isometric_force": 2389.180327868856,
+    "optimal_fiber_length": 0.144175,
+    "tendon_slack_length": 0.0976688791866074,
+    "pennation_angle_at_optimal": 0.22038504,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.7,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": [
+      "addmagProx_r",
+      "addmagMid_r",
+      "addmagDist_r",
+      "addmagIsch_r"
+    ]
+  },
+  "Semimembranosus muscle|r": {
+    "max_isometric_force": 2200.9868852459,
+    "optimal_fiber_length": 0.069,
+    "tendon_slack_length": 0.347585979533214,
+    "pennation_angle_at_optimal": 0.25456146,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.7,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": "semimem_r"
+  },
+  "Short head of biceps femoris|r": {
+    "max_isometric_force": 557.11475409836,
+    "optimal_fiber_length": 0.1103,
+    "tendon_slack_length": 0.105817218589115,
+    "pennation_angle_at_optimal": 0.26422317,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.7,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": "bfsh_r"
+  },
+  "Piriformis muscle|r": {
+    "max_isometric_force": 1029.7868852459,
+    "optimal_fiber_length": 0.026,
+    "tendon_slack_length": 0.114906238342785,
+    "pennation_angle_at_optimal": 0.17453293,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.7,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": "piri_r"
+  },
+  "Vastus intermedius muscle|l": {
+    "max_isometric_force": 1697.36065573771,
+    "optimal_fiber_length": 0.0993,
+    "tendon_slack_length": 0.202210670345763,
+    "pennation_angle_at_optimal": 0.06309973,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.7,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": "vasint_l"
+  },
+  "Vastus lateralis muscle|l": {
+    "max_isometric_force": 5148.76721311476,
+    "optimal_fiber_length": 0.0994,
+    "tendon_slack_length": 0.220601284834603,
+    "pennation_angle_at_optimal": 0.25286729,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.7,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": "vaslat_l"
+  },
+  "Vastus medialis muscle|l": {
+    "max_isometric_force": 2747.82295081966,
+    "optimal_fiber_length": 0.0968,
+    "tendon_slack_length": 0.199904270842317,
+    "pennation_angle_at_optimal": 0.42222253,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.7,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": "vasmed_l"
+  },
+  "Gluteus maximus muscle|l": {
+    "max_isometric_force": 3337.583606557384,
+    "optimal_fiber_length": 0.157,
+    "tendon_slack_length": 0.062148215336640035,
+    "pennation_angle_at_optimal": 0.36793665666666664,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.6999999999999998,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": [
+      "glmax1_l",
+      "glmax2_l",
+      "glmax3_l"
+    ]
+  },
+  "Gluteus medius muscle|l": {
+    "max_isometric_force": 2729.7576946,
+    "optimal_fiber_length": 0.073,
+    "tendon_slack_length": 0.055432828914749495,
+    "pennation_angle_at_optimal": 0.31655591,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.6999999999999998,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": [
+      "glmed1_l",
+      "glmed2_l",
+      "glmed3_l"
+    ]
+  },
+  "Long head of biceps femoris|l": {
+    "max_isometric_force": 1313.18360655738,
+    "optimal_fiber_length": 0.0976,
+    "tendon_slack_length": 0.325226647516457,
+    "pennation_angle_at_optimal": 0.17591823,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.7,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": "bflh_l"
+  },
+  "Adductor longus|l": {
+    "max_isometric_force": 916.8,
+    "optimal_fiber_length": 0.1082,
+    "tendon_slack_length": 0.131799363342026,
+    "pennation_angle_at_optimal": 0.13777039,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.7,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": "addlong_l"
+  },
+  "Gracilis muscle|l": {
+    "max_isometric_force": 281.311475409836,
+    "optimal_fiber_length": 0.2278,
+    "tendon_slack_length": 0.172013810564373,
+    "pennation_angle_at_optimal": 0.17200156,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.7,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": "grac_l"
+  },
+  "Adductor magnus|l": {
+    "max_isometric_force": 2389.180327868856,
+    "optimal_fiber_length": 0.144175,
+    "tendon_slack_length": 0.0976688791866074,
+    "pennation_angle_at_optimal": 0.22038504,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.7,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": [
+      "addmagProx_l",
+      "addmagMid_l",
+      "addmagDist_l",
+      "addmagIsch_l"
+    ]
+  },
+  "Sartorius muscle|l": {
+    "max_isometric_force": 249.413114754098,
+    "optimal_fiber_length": 0.403,
+    "tendon_slack_length": 0.123999830194402,
+    "pennation_angle_at_optimal": 0.02613542,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.7,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": "sart_l"
+  },
+  "Semitendinosus muscle|l": {
+    "max_isometric_force": 591.295081967214,
+    "optimal_fiber_length": 0.193,
+    "tendon_slack_length": 0.24719894503751,
+    "pennation_angle_at_optimal": 0.241295,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.7,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": "semiten_l"
+  },
+  "Rectus femoris muscle|l": {
+    "max_isometric_force": 2191.74098360656,
+    "optimal_fiber_length": 0.0759,
+    "tendon_slack_length": 0.448493537399412,
+    "pennation_angle_at_optimal": 0.2170149,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.7,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": "recfem_l"
+  },
+  "Semimembranosus muscle|l": {
+    "max_isometric_force": 2200.9868852459,
+    "optimal_fiber_length": 0.069,
+    "tendon_slack_length": 0.347585979533214,
+    "pennation_angle_at_optimal": 0.25456146,
+    "passive_curve": {
+      "strain_at_zero_force": 0.0,
+      "strain_at_one_norm_force": 0.7,
+      "source": "per_muscle"
+    },
+    "opensim_source_id": "semimem_l"
+  }
+}

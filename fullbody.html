@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>全身人體解剖互動檢視器</title>
+    <style>
+      :root { color-scheme: dark; }
+      * { box-sizing: border-box; }
+      html, body { width: 100%; height: 100%; margin: 0; overflow: hidden;
+        background: #0b1020; color: #eef2ff;
+        font-family: "Noto Sans TC", system-ui, -apple-system, sans-serif; }
+      #app { position: relative; width: 100%; height: 100%; }
+      #renderCanvas { display: block; width: 100%; height: 100%; outline: none; touch-action: none; }
+
+      .panel { position: absolute; top: 1rem; left: 1rem; width: min(22rem, calc(100% - 2rem));
+        padding: 1rem 1.15rem; border: 1px solid rgb(148 163 184 / 24%); border-radius: 1rem;
+        background: rgb(10 16 32 / 90%); box-shadow: 0 1rem 3rem rgb(0 0 0 / 35%);
+        backdrop-filter: blur(12px); max-height: calc(100% - 2rem); overflow-y: auto; }
+      .eyebrow { margin: 0 0 .35rem; color: #fb923c; font-size: .72rem; font-weight: 750;
+        letter-spacing: .12em; text-transform: uppercase; }
+      h1 { margin: 0 0 .9rem; font-size: 1.2rem; }
+      h2 { margin: 1rem 0 .45rem; color: #94a3b8; font-size: .72rem;
+        letter-spacing: .08em; text-transform: uppercase; }
+      .layers { display: grid; grid-template-columns: repeat(3, 1fr); gap: .45rem; }
+      .layer { display: flex; align-items: center; gap: .4rem; padding: .5rem .55rem;
+        border: 1px solid rgb(148 163 184 / 20%); border-radius: .55rem;
+        background: rgb(22 32 58 / 72%); color: #cbd5e1; font-size: .78rem; cursor: pointer; }
+      .layer input { margin: 0; accent-color: #fb923c; }
+      .readout { display: grid; gap: .45rem; }
+      .row { display: grid; grid-template-columns: 5.4rem minmax(0, 1fr); gap: .6rem;
+        padding: .55rem .65rem; border-radius: .5rem; background: rgb(59 130 246 / 9%);
+        border: 1px solid rgb(59 130 246 / 20%); font-size: .78rem; line-height: 1.4; }
+      .key { color: #64748b; }
+      .value { color: #bfdbfe; overflow-wrap: anywhere; }
+      #draggedJoint.active { color: #fdba74; }
+      button { width: 100%; margin-top: .9rem; padding: .6rem .75rem; border: 1px solid rgb(251 146 60 / 35%);
+        border-radius: .55rem; background: rgb(251 146 60 / 13%); color: #fdba74;
+        font: inherit; font-size: .82rem; cursor: pointer; }
+      button:hover { background: rgb(251 146 60 / 22%); }
+      .status { margin-top: .75rem; min-height: 2.25rem; padding: .55rem .65rem; border-radius: .5rem;
+        background: rgb(15 23 42 / 72%); border: 1px solid rgb(148 163 184 / 15%);
+        color: #94a3b8; font-size: .72rem; line-height: 1.5; }
+      #hint { position: absolute; right: 1rem; bottom: 1rem; max-width: min(32rem, calc(100% - 2rem));
+        padding: .45rem .65rem; border-radius: .45rem; background: rgb(10 16 32 / 65%);
+        color: #64748b; font-size: .7rem; text-align: right; }
+      @media (max-width: 640px) {
+        .panel { top: .6rem; left: .6rem; width: calc(100% - 1.2rem); padding: .8rem; }
+        #hint { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="renderCanvas"></canvas>
+      <aside class="panel" aria-label="解剖檢視器控制面板">
+        <p class="eyebrow">Full-body anatomy · 16-segment rig</p>
+        <h1>全身人體解剖互動檢視器</h1>
+
+        <h2>顯示圖層</h2>
+        <div class="layers">
+          <label class="layer"><input id="layerBone" type="checkbox" checked />骨骼</label>
+          <label class="layer"><input id="layerMuscle" type="checkbox" checked />肌肉</label>
+          <label class="layer"><input id="layerFascia" type="checkbox" checked />筋膜</label>
+        </div>
+
+        <h2>目前狀態</h2>
+        <div class="readout">
+          <div class="row"><span class="key">選取網格</span><span class="value" id="selectedMesh">尚未選取</span></div>
+          <div class="row"><span class="key">拖曳關節</span><span class="value" id="draggedJoint">無</span></div>
+        </div>
+        <button id="resetPose" type="button">重置姿勢</button>
+        <div class="status" id="status" role="status">正在載入全身模型…</div>
+      </aside>
+      <div id="hint">拖曳橘色關節球改變肢體方向 · 上游關節會帶動下游肢體 · 拖曳空白處旋轉視角 · 滾輪縮放</div>
+    </div>
+    <script type="module" src="/src/fullbody.ts"></script>
+  </body>
+</html>

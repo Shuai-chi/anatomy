@@ -1,0 +1,107 @@
+[
+  {
+    "exercise_id": "flat_bench_press",
+    "name_en": "Flat Barbell Bench Press",
+    "name_zh": "平板臥推",
+    "equipment_type": "barbell",
+    "movement_plane": "transverse (horizontal adduction) with sagittal elbow extension",
+    "joint_actions": ["shoulder horizontal adduction", "shoulder internal rotation (isometric)", "elbow extension", "scapular stabilization (serratus anterior, pec minor)"],
+    "muscle_engagement": [
+      {"muscle_id": "pec_major_sternocostal", "role": "prime_mover", "note": "Most-cited head at flat bench angle across EMG studies."},
+      {"muscle_id": "pec_major_clavicular", "role": "synergist", "note": "Contributes but less than at incline in most (not all) studies."},
+      {"muscle_id": "pec_major_abdominal", "role": "synergist", "note": "Contributes; less isolated data available than clavicular/sternocostal split."},
+      {"muscle_id": "serratus_anterior", "role": "stabilizer", "note": "Scapular protraction/stabilization against the ribcage during the press."},
+      {"muscle_id": "pectoralis_minor", "role": "stabilizer", "note": "Scapular stabilization, minor contribution."}
+    ],
+    "colloquial_region_tag": "中胸",
+    "source_refs": [
+      "Saeterbakken et al., Journal of Human Kinetics 2017 (via PMC5504579, fetched 2026-07-31)",
+      "https://en.wikipedia.org/wiki/Pectoralis_major_muscle (fetched 2026-07-31)"
+    ]
+  },
+  {
+    "exercise_id": "incline_barbell_bench_press",
+    "name_en": "Incline Barbell Bench Press",
+    "name_zh": "上斜臥推",
+    "equipment_type": "barbell",
+    "movement_plane": "transverse-to-sagittal (angle-dependent, bench ~15-45 degrees)",
+    "joint_actions": ["shoulder flexion + horizontal adduction", "elbow extension", "scapular stabilization"],
+    "muscle_engagement": [
+      {"muscle_id": "pec_major_clavicular", "role": "prime_mover", "note": "EVIDENCE IS MIXED — see caveat below, do not present as settled."},
+      {"muscle_id": "pec_major_sternocostal", "role": "synergist", "note": "Reduced relative to clavicular in some EMG studies; unchanged in others."},
+      {"muscle_id": "serratus_anterior", "role": "stabilizer", "note": "Scapular stabilization."}
+    ],
+    "colloquial_region_tag": "上胸",
+    "engagement_caveat": "EMG literature is genuinely mixed, not settled: some studies (e.g. panoramic ultrasonography cross-sectional area work; European Journal of Sport Sciences 2026 incline-angle study) found significantly higher clavicular activation at incline vs flat. Others (Saeterbakken et al. 2017, elite bench press athletes) found NO significant difference in clavicular vs sternocostal activation across flat/incline/decline. Do not render this exercise as '100% isolates upper chest' in the UI — render as 'shifts emphasis toward clavicular fibers in most but not all studies.'",
+    "source_refs": [
+      "Saeterbakken et al., Journal of Human Kinetics 2017 (via PMC5504579, fetched 2026-07-31) — no significant difference across angles in elite lifters",
+      "Trebs et al., Journal of Strength and Conditioning Research 2010 — significant clavicular activation increase at 44° incline (AGY-verified 2026-07-31)",
+      "https://en.wikipedia.org/wiki/Pectoralis_major_muscle (fetched 2026-07-31)"
+    ]
+  },
+  {
+    "exercise_id": "decline_barbell_bench_press",
+    "name_en": "Decline Barbell Bench Press",
+    "name_zh": "下斜臥推",
+    "equipment_type": "barbell",
+    "movement_plane": "transverse-to-sagittal, downward angle",
+    "joint_actions": ["shoulder extension + horizontal adduction", "elbow extension", "scapular stabilization"],
+    "muscle_engagement": [
+      {"muscle_id": "pec_major_sternocostal", "role": "prime_mover", "note": "Most-cited head at decline angle."},
+      {"muscle_id": "pec_major_abdominal", "role": "synergist", "note": "Line of pull most aligned with abdominal head at this angle, but distinct isolated EMG data for this head specifically is sparse — flagged for AGY to find better sourcing."},
+      {"muscle_id": "pec_major_clavicular", "role": "synergist", "note": "Least activated of the three heads at this angle in most studies."}
+    ],
+    "colloquial_region_tag": "下胸",
+    "source_refs": [
+      "Saeterbakken et al., Journal of Human Kinetics 2017 (via PMC5504579, fetched 2026-07-31)"
+    ]
+  },
+  {
+    "exercise_id": "cable_crossover_low_to_high",
+    "name_en": "Cable Crossover (Low-to-High Fly)",
+    "name_zh": "繩索夾胸（低位往上）",
+    "equipment_type": "cable",
+    "movement_plane": "diagonal, ascending",
+    "joint_actions": ["shoulder horizontal adduction + flexion (diagonal)", "elbow slight flexion (isometric)"],
+    "muscle_engagement": [
+      {"muscle_id": "pec_major_clavicular", "role": "prime_mover", "note": "Cable path follows clavicular fiber line of pull; also loads pecs at long muscle length (stretched position), unlike presses."}
+    ],
+    "colloquial_region_tag": "上胸",
+    "source_refs": [
+      "Schildecker et al., ACE-sponsored EMG chest-exercise comparison study, University of Wisconsin-La Crosse (AGY-verified 2026-07-31) — cable crossover EMG activation comparable to barbell bench press / pec deck; low-to-high path concentrates clavicular activation"
+    ]
+  },
+  {
+    "exercise_id": "cable_crossover_high_to_low",
+    "name_en": "Cable Crossover (High-to-Low Fly)",
+    "name_zh": "繩索夾胸（高位往下）",
+    "equipment_type": "cable",
+    "movement_plane": "diagonal, descending",
+    "joint_actions": ["shoulder horizontal adduction + extension (diagonal)", "elbow slight flexion (isometric)"],
+    "muscle_engagement": [
+      {"muscle_id": "pec_major_sternocostal", "role": "prime_mover", "note": "Cable path follows sternocostal/lower fiber line of pull."},
+      {"muscle_id": "pec_major_abdominal", "role": "synergist", "note": "Similar caveat as decline press — sparse isolated EMG data for this head."}
+    ],
+    "colloquial_region_tag": "下胸",
+    "source_refs": [
+      "Schildecker et al., ACE-sponsored EMG chest-exercise comparison study, University of Wisconsin-La Crosse (AGY-verified 2026-07-31) — high-to-low path concentrates sternocostal/lower-fiber activation"
+    ]
+  },
+  {
+    "exercise_id": "forward_lean_parallel_bar_dip",
+    "name_en": "Forward-Lean Parallel Bar Dip",
+    "name_zh": "雙槓下推（前傾）",
+    "equipment_type": "bodyweight (parallel bars)",
+    "movement_plane": "sagittal-dominant with horizontal adduction component from elbow flare",
+    "joint_actions": ["shoulder extension + horizontal adduction (elbows flared)", "elbow extension", "scapular depression"],
+    "muscle_engagement": [
+      {"muscle_id": "pec_major_sternocostal", "role": "prime_mover", "note": "Boeckh-Behrens & Buskies 2000: forward lean + elbow flare shifts load from triceps to lower/sternocostal chest fibers."},
+      {"muscle_id": "pec_major_abdominal", "role": "synergist", "note": "Commonly grouped with sternocostal in secondary sources; primary-source granularity for this head specifically not yet found."}
+    ],
+    "colloquial_region_tag": "下胸",
+    "engagement_caveat": "Upright-torso dips shift emphasis to triceps (not chest-dominant) — the chest-targeting version specifically requires forward lean + elbow flare. Do not encode 'dip' as inherently chest-dominant without the form qualifier.",
+    "source_refs": [
+      "Boeckh-Behrens & Buskies, Fitness-Krafttraining, 2000 (AGY-verified 2026-07-31 as a real, authoritative EMG-based German exercise science text)"
+    ]
+  }
+]

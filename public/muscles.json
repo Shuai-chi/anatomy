@@ -1,0 +1,111 @@
+[
+  {
+    "muscle_id": "pectoralis_major",
+    "ta_name": "Musculus pectoralis major",
+    "parent_muscle": null,
+    "fiber_region": null,
+    "common_name_en": "Pectoralis major",
+    "common_name_zh": "胸大肌",
+    "z_anatomy_label": "TBD",
+    "origin": "Combined origin across three heads (see child records)",
+    "insertion": "Flat tendon (~5cm wide) into the lateral lip of the bicipital groove (crest of greater tubercle) of the humerus; anterior and posterior laminae interdigitate by head of origin",
+    "primary_actions": [
+      {"joint": "shoulder", "movement": "adduction, internal rotation", "plane": "varies by fiber region"}
+    ],
+    "innervation": "Medial and lateral pectoral nerves (dual innervation)",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Pectoralis_major_muscle (fetched 2026-07-31)"
+    ]
+  },
+  {
+    "muscle_id": "pec_major_clavicular",
+    "ta_name": "Musculus pectoralis major, pars clavicularis",
+    "parent_muscle": "pectoralis_major",
+    "fiber_region": "clavicular_head",
+    "common_name_en": "Clavicular head / upper chest fibers",
+    "common_name_zh": "胸大肌鎖骨部",
+    "z_anatomy_label": "TBD",
+    "origin": "Anterior surface of the medial half of the clavicle",
+    "insertion": "Lateral lip of the bicipital groove of the humerus (anterior lamina, most superficial)",
+    "primary_actions": [
+      {"joint": "shoulder", "movement": "flexion (from an extended position), horizontal adduction", "plane": "sagittal / transverse"}
+    ],
+    "innervation": "Lateral pectoral nerve, C5-C6 via upper trunk of brachial plexus",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Pectoralis_major_muscle (fetched 2026-07-31)"
+    ]
+  },
+  {
+    "muscle_id": "pec_major_sternocostal",
+    "ta_name": "Musculus pectoralis major, pars sternocostalis",
+    "parent_muscle": "pectoralis_major",
+    "fiber_region": "sternocostal_head",
+    "common_name_en": "Sternocostal head / mid chest fibers",
+    "common_name_zh": "胸大肌胸肋部",
+    "z_anatomy_label": "TBD",
+    "origin": "Anterior surface of the sternum and superior six costal cartilages",
+    "insertion": "Lateral lip of the bicipital groove of the humerus (posterior lamina)",
+    "primary_actions": [
+      {"joint": "shoulder", "movement": "adduction, extension (from flexed position), internal rotation", "plane": "transverse / sagittal"}
+    ],
+    "innervation": "Medial and lateral pectoral nerves, C7-T1 via lower trunk / medial pectoral nerve",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Pectoralis_major_muscle (fetched 2026-07-31)"
+    ]
+  },
+  {
+    "muscle_id": "pec_major_abdominal",
+    "ta_name": "Musculus pectoralis major, pars abdominalis",
+    "parent_muscle": "pectoralis_major",
+    "fiber_region": "abdominal_head",
+    "common_name_en": "Abdominal head / lower chest fibers",
+    "common_name_zh": "胸大肌腹部",
+    "z_anatomy_label": "TBD",
+    "origin": "Aponeurosis of the external oblique muscle (anterior layer of rectus sheath)",
+    "insertion": "Lateral lip of the bicipital groove of the humerus, most inferior/posterior fibers",
+    "primary_actions": [
+      {"joint": "shoulder", "movement": "adduction, extension, internal rotation — strongest downward-pulling line of pull", "plane": "sagittal / transverse"}
+    ],
+    "innervation": "Medial pectoral nerve",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Pectoralis_major_muscle (fetched 2026-07-31)",
+      "AGY cross-check against gross-anatomy standard references, 2026-07-31 — confirmed accurate, external oblique aponeurosis origin is correct"
+    ]
+  },
+  {
+    "muscle_id": "pectoralis_minor",
+    "ta_name": "Musculus pectoralis minor",
+    "parent_muscle": null,
+    "fiber_region": null,
+    "common_name_en": "Pectoralis minor",
+    "common_name_zh": "胸小肌",
+    "z_anatomy_label": "TBD",
+    "origin": "3rd, 4th, and 5th ribs near their costal cartilages, and aponeuroses covering the intercostales",
+    "insertion": "Medial border and upper surface of the coracoid process of the scapula",
+    "primary_actions": [
+      {"joint": "scapulothoracic", "movement": "depresses shoulder point / draws scapula inferomedially, tilts inferior angle posteriorly, stabilizes scapula against thorax, assists forced inhalation", "plane": "n/a (scapular stabilizer, not a prime mover for pressing)"}
+    ],
+    "innervation": "Medial pectoral nerve, C8",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Pectoralis_minor_muscle (fetched 2026-07-31)"
+    ]
+  },
+  {
+    "muscle_id": "serratus_anterior",
+    "ta_name": "Musculus serratus anterior",
+    "parent_muscle": null,
+    "fiber_region": null,
+    "common_name_en": "Serratus anterior",
+    "common_name_zh": "前鋸肌",
+    "z_anatomy_label": "TBD",
+    "origin": "Outer surface of ribs 1-9",
+    "insertion": "Medial (costal) border of the scapula, in three functional divisions (superior/intermediate/inferior)",
+    "primary_actions": [
+      {"joint": "scapulothoracic", "movement": "scapular protraction; inferior fibers produce upward rotation for overhead lifting; stabilizes scapula against thorax during pressing", "plane": "n/a (stabilizer)"}
+    ],
+    "innervation": "Long thoracic nerve, C5-C7",
+    "source_refs": [
+      "https://en.wikipedia.org/wiki/Serratus_anterior_muscle (fetched 2026-07-31)"
+    ]
+  }
+]

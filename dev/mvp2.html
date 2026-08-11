@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>胸部訓練解剖對照 — MVP</title>
+    <style>
+      :root { color-scheme: dark; }
+      html, body { width: 100%; height: 100%; margin: 0; overflow: hidden;
+        background: #0b1020; color: #eef2ff;
+        font-family: "Noto Sans TC", system-ui, -apple-system, sans-serif; }
+      #app { position: relative; width: 100%; height: 100%; }
+      #renderCanvas { display: block; width: 100%; height: 100%; outline: none; touch-action: none; }
+
+      .panel { position: absolute; top: 1rem; left: 1rem; width: min(23rem, calc(100% - 2rem));
+        padding: 1rem 1.15rem; border: 1px solid rgb(148 163 184 / 24%); border-radius: 1rem;
+        background: rgb(10 16 32 / 90%); box-shadow: 0 1rem 3rem rgb(0 0 0 / 35%);
+        backdrop-filter: blur(12px); max-height: calc(100% - 2rem); overflow-y: auto; }
+      .eyebrow { margin: 0 0 .35rem; color: #fb923c; font-size: .72rem; font-weight: 750;
+        letter-spacing: .12em; text-transform: uppercase; }
+      h1 { margin: 0 0 .8rem; font-size: 1.2rem; }
+      label { display: block; font-size: .78rem; color: #94a3b8; margin-bottom: .3rem; }
+      select { width: 100%; padding: .5rem .6rem; border-radius: .5rem; font-size: .9rem;
+        background: #16203a; color: #eef2ff; border: 1px solid rgb(148 163 184 / 30%); }
+
+      .rom { margin-top: .8rem; padding: .55rem .7rem; border-radius: .5rem;
+        background: rgb(59 130 246 / 10%); border: 1px solid rgb(59 130 246 / 25%);
+        font-family: ui-monospace, monospace; font-size: .78rem; color: #93c5fd; }
+
+      .meta { margin-top: .8rem; font-size: .8rem; line-height: 1.55; color: #cbd5e1; }
+      .meta .row { display: flex; gap: .5rem; margin-bottom: .25rem; }
+      .meta .k { color: #64748b; min-width: 4.5rem; flex-shrink: 0; }
+
+      .muscles { margin-top: .8rem; }
+      .muscle { display: flex; align-items: baseline; gap: .5rem; padding: .35rem 0;
+        border-top: 1px solid rgb(148 163 184 / 12%); font-size: .82rem; }
+      .swatch { width: .7rem; height: .7rem; border-radius: 50%; flex-shrink: 0;
+        transform: translateY(1px); }
+      .mname { flex: 1; }
+      .mrole { font-size: .7rem; color: #94a3b8; }
+      .mnote { font-size: .71rem; color: #7c8aa3; line-height: 1.45; margin: .1rem 0 .3rem 1.2rem; }
+
+      .caveat { margin-top: .8rem; padding: .6rem .7rem; border-radius: .5rem;
+        background: rgb(251 146 60 / 10%); border: 1px solid rgb(251 146 60 / 28%);
+        font-size: .71rem; line-height: 1.55; color: #fdba74; }
+      .legend { margin-top: .85rem; display: flex; flex-wrap: wrap; gap: .7rem; font-size: .7rem;
+        color: #94a3b8; }
+      .legend span { display: inline-flex; align-items: center; gap: .3rem; }
+      #hint { position: absolute; bottom: 1rem; left: 1rem; font-size: .72rem; color: #64748b; }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="renderCanvas"></canvas>
+      <div class="panel">
+        <p class="eyebrow">胸部試點 · Chest pilot MVP</p>
+        <h1>器材 → 肌群 × 運動方向</h1>
+        <label for="exercise">選擇動作／器材</label>
+        <select id="exercise"></select>
+        <div class="rom" id="rom">—</div>
+        <div class="meta" id="meta"></div>
+        <div class="muscles" id="muscles"></div>
+        <div class="caveat" id="caveat" hidden></div>
+        <div class="legend">
+          <span><i class="swatch" style="background:#ef4444"></i>主動肌</span>
+          <span><i class="swatch" style="background:#f59e0b"></i>協同肌</span>
+          <span><i class="swatch" style="background:#3b82f6"></i>穩定肌</span>
+          <span><i class="swatch" style="background:#475569"></i>未參與</span>
+        </div>
+      </div>
+      <div id="hint">拖曳橘色球體（腕部）帶動整條手臂 · 肩肘連動 · 拖曳空白處旋轉視角 · 滾輪縮放</div>
+    </div>
+    <script type="module" src="/src/main_mvp2.ts"></script>
+  </body>
+</html>
