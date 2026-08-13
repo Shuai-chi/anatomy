@@ -213,15 +213,31 @@ function renderTension(item: { runtime: MuscleRuntime; strain: number }): HTMLDi
 }
 
 /**
- * B-lite passive Hill-type force-length estimate.  The browser geometry supplies
- * MTU length; Rajagopal2016 supplies the Millard curve constants.  With
- * F=exp(k*extension)-1, solve k=ln(2)/curveSpan so the specified one-force
- * strain evaluates to 1, without presenting a Newton value.
+ * B-lite passive Hill-type force-length estimate, rest-anchored (not absolute).
+ *
+ * A straight-line origin-insertion length is not on the same scale as
+ * Rajagopal2016's real (wrapped) muscle-tendon length -- subtracting the
+ * sourced tendon_slack_length from our geometric length was verified (28-muscle
+ * audit, 2026-08-11/12) to put most muscles' rest-pose normalized fiber length
+ * far from 1.0 in both directions: several (e.g. rectus femoris, vastus
+ * medialis) permanently floor-clamped near 0 regardless of pose, while others
+ * (e.g. piriformis, gracilis) reported nonzero passive tension at a relaxed
+ * standing pose. Neither is physiologically defensible, so tendon_slack_length
+ * is intentionally NOT used here.
+ *
+ * Calibration assumption (app-defined, not sourced from Rajagopal2016): this
+ * app's own geometric rest length maps to normalizedLength = 1.0 exactly, i.e.
+ * fiber length at rest := optimal_fiber_length. Geometric length changes from
+ * that rest pose are then assumed to transfer entirely to the fiber (a rigid,
+ * inextensible tendon -- a real, named simplification distinct from
+ * Rajagopal2016's own compliant-tendon model, not fabricated physics).
+ * optimal_fiber_length, pennation_angle_at_optimal, and the passive curve
+ * constants remain the sourced Rajagopal2016 values.
  */
 function passiveTension(runtime: MuscleRuntime): number | null {
   const dynamics = muscleDynamics.get(runtime.key); if (!dynamics) return null;
-  const fiberLength = Math.max(muscleLength(runtime) - dynamics.tendon_slack_length, dynamics.optimal_fiber_length * .01) / Math.cos(dynamics.pennation_angle_at_optimal);
-  const normalizedLength = fiberLength / dynamics.optimal_fiber_length;
+  const deltaLength = muscleLength(runtime) - runtime.restLength;
+  const normalizedLength = 1 + deltaLength / Math.cos(dynamics.pennation_angle_at_optimal) / dynamics.optimal_fiber_length;
   const zero = dynamics.passive_curve.strain_at_zero_force;
   const one = dynamics.passive_curve.strain_at_one_norm_force;
   const extension = normalizedLength - 1 - zero;

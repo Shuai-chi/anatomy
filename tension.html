@@ -23,7 +23,7 @@
       <canvas id="renderCanvas"></canvas>
       <aside class="panel" aria-label="肌肉起止點張力連動面板">
         <p class="eyebrow">WP7-A · attachment geometry</p><h1>肌肉起止點張力連動</h1>
-        <div class="notice"><strong>B-lite 被動張力估計，不是完整力學模擬。</strong><br />此頁實算附著點間的相對長度與角度導數，並以 Rajagopal2016 的 Hill-type 參數估算正規化被動張力；不含肌肉繞行、逆向運動學或力矩求解，也不會真的推動骨盆。本頁的直線起止點幾何與 Rajagopal2016 實際（含繞行）肌腱長度未經校準，部分肌肉（如股直肌）即使真實應變在增加，被動張力估計仍可能停在 0——這是幾何落差，不代表該肌肉真的沒有被動張力。</div>
+        <div class="notice"><strong>B-lite 被動張力估計，不是完整力學模擬。</strong><br />此頁實算附著點間的相對長度與角度導數，並以 Rajagopal2016 的 Hill-type 參數估算正規化被動張力；不含肌肉繞行、逆向運動學或力矩求解，也不會真的推動骨盆。本頁的直線起止點幾何無法對應 Rajagopal2016 實際（含繞行）肌腱長度的絕對值，因此「靜止姿勢＝正規化長度 1.0」是本頁的校準假設，並非 Rajagopal2016 原始資料；姿勢改變後的張力變化採剛性肌腱簡化（幾何長度變化全部轉嫁到肌纖維），與 Rajagopal2016 原始的可延展肌腱模型不同。肌肉的最適纖維長度、羽狀角與被動力-長度曲線常數仍為 Rajagopal2016 原始值。</div>
         <h2>目前姿勢</h2><div class="readout"><div class="row"><span class="key">拖曳關節</span><span class="value" id="draggedJoint">無</span></div><div class="row"><span class="key">跨關節肌</span><span class="value" id="summary">載入中</span></div></div>
         <h2>被拉長的肌肉</h2><div id="tensionList" aria-live="polite"></div>
         <button id="resetPose" type="button">重置姿勢</button><div id="status" role="status">正在載入附著點與全身模型…</div><div class="detail">被動張力估計參數來源：Rajagopal et al. (2016) <i>Full-body musculoskeletal model for muscle-driven simulation of human gait</i>, IEEE TBME｜模型資料 SimTK.org（MIT 授權）｜<a href="https://doi.org/10.1109/TBME.2016.2586891">DOI</a></div>
