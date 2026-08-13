@@ -1,0 +1,786 @@
+[
+  {
+    "exercise_id": "pull_up_overhand",
+    "name_en": "Overhand Pull-Up",
+    "name_zh": "正握引體向上",
+    "equipment_type": "bodyweight",
+    "movement_plane": "frontal (shoulder adduction) and sagittal (shoulder extension)",
+    "joint_actions": [
+      "shoulder adduction",
+      "shoulder extension",
+      "elbow flexion",
+      "scapular downward rotation"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "latissimus_dorsi",
+        "role": "prime_mover",
+        "note": "Primary mover for shoulder adduction and extension."
+      },
+      {
+        "muscle_id": "teres_major",
+        "role": "synergist",
+        "note": "Assists lats in shoulder extension and adduction."
+      },
+      {
+        "muscle_id": "trapezius_lower",
+        "role": "synergist",
+        "note": "Assists in scapular depression and stabilization."
+      },
+      {
+        "muscle_id": "biceps_brachii",
+        "role": "synergist",
+        "note": "Assists in elbow flexion. Generally lower activation compared to underhand chin-up (Youdas et al. 2010)."
+      }
+    ],
+    "colloquial_region_tag": "背闊肌",
+    "source_refs": [
+      "Youdas et al., Journal of Strength and Conditioning Research 2010;24(12):3404-3414 (Surface electromyographic activation patterns and elbow joint motion during a pull-up, chin-up, or perfect-pullup rotational exercise); DOI: 10.1519/JSC.0b013e3181f1598c",
+      "https://exrx.net/WeightExercises/LatissimusDorsi/BWPullup (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "exercise_id": "chin_up_underhand",
+    "name_en": "Underhand Chin-Up",
+    "name_zh": "反握引體向上",
+    "equipment_type": "bodyweight",
+    "movement_plane": "sagittal dominant",
+    "joint_actions": [
+      "shoulder extension",
+      "elbow flexion",
+      "scapular downward rotation"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "latissimus_dorsi",
+        "role": "prime_mover",
+        "note": "Strongly activated, mostly via shoulder extension."
+      },
+      {
+        "muscle_id": "biceps_brachii",
+        "role": "synergist",
+        "note": "Significantly higher activation than overhand pull-ups due to supinated grip (Youdas et al. 2010)."
+      },
+      {
+        "muscle_id": "trapezius_lower",
+        "role": "synergist",
+        "note": "Scapular depression."
+      }
+    ],
+    "colloquial_region_tag": "背闊肌",
+    "source_refs": [
+      "Youdas et al., Journal of Strength and Conditioning Research 2010;24(12):3404-3414; DOI: 10.1519/JSC.0b013e3181f1598c",
+      "https://exrx.net/WeightExercises/LatissimusDorsi/BWUnderhandChinup (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "exercise_id": "barbell_row",
+    "name_en": "Bent-Over Barbell Row",
+    "name_zh": "槓鈴划船",
+    "equipment_type": "barbell",
+    "movement_plane": "sagittal",
+    "joint_actions": [
+      "shoulder extension",
+      "elbow flexion",
+      "scapular retraction"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "latissimus_dorsi",
+        "role": "prime_mover",
+        "note": "Shoulder extension."
+      },
+      {
+        "muscle_id": "rhomboids",
+        "role": "synergist",
+        "note": "Scapular retraction."
+      },
+      {
+        "muscle_id": "trapezius_middle",
+        "role": "synergist",
+        "note": "Scapular retraction."
+      },
+      {
+        "muscle_id": "erector_spinae",
+        "role": "stabilizer",
+        "note": "Maintains isometric spinal extension (Fenwick et al. 2009)."
+      },
+      {
+        "muscle_id": "biceps_brachii",
+        "role": "synergist",
+        "note": "Elbow flexor; assists elbow flexion during the pulling phase. Listed because the exercise's joint_actions include elbow flexion, and an action with no muscle assigned to produce it is a data inconsistency."
+      }
+    ],
+    "colloquial_region_tag": "全背",
+    "engagement_caveat": "Heavy reliance on erector spinae for stabilization can be a limiting factor compared to chest-supported rows.",
+    "source_refs": [
+      "Fenwick et al., Journal of Strength and Conditioning Research 2009;23(2):350-358 (Comparison of different rowing exercises: trunk muscle activation and lumbar spine motion, load, and stiffness); DOI: 10.1519/JSC.0b013e3181942019"
+    ]
+  },
+  {
+    "exercise_id": "lat_pulldown",
+    "name_en": "Cable Lat Pulldown",
+    "name_zh": "滑輪下拉",
+    "equipment_type": "cable",
+    "movement_plane": "frontal",
+    "joint_actions": [
+      "shoulder adduction",
+      "elbow flexion",
+      "scapular downward rotation"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "latissimus_dorsi",
+        "role": "prime_mover",
+        "note": "Primary adductor."
+      },
+      {
+        "muscle_id": "biceps_brachii",
+        "role": "synergist",
+        "note": "Elbow flexor."
+      },
+      {
+        "muscle_id": "trapezius_lower",
+        "role": "synergist",
+        "note": "Scapular depressor."
+      }
+    ],
+    "colloquial_region_tag": "背闊肌",
+    "source_refs": [
+      "https://exrx.net/WeightExercises/LatissimusDorsi/CBFrontPulldown",
+      "Lusk et al., Journal of Strength and Conditioning Research 2010;24(7):1895-1900 (Grip width and forearm orientation effects on muscle activity during the lat pull-down); DOI: 10.1519/JSC.0b013e3181ddb0ab"
+    ]
+  },
+  {
+    "exercise_id": "single_arm_dumbbell_row",
+    "name_en": "Single-Arm Dumbbell Row",
+    "name_zh": "單臂啞鈴划船",
+    "equipment_type": "dumbbell",
+    "movement_plane": "sagittal",
+    "joint_actions": [
+      "shoulder extension",
+      "elbow flexion",
+      "scapular retraction"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "latissimus_dorsi",
+        "role": "prime_mover",
+        "note": "Primary shoulder extensor."
+      },
+      {
+        "muscle_id": "rhomboids",
+        "role": "synergist",
+        "note": "Scapular retraction."
+      },
+      {
+        "muscle_id": "deltoid_posterior",
+        "role": "synergist",
+        "note": "Assists in shoulder extension."
+      },
+      {
+        "muscle_id": "biceps_brachii",
+        "role": "synergist",
+        "note": "Elbow flexor; assists elbow flexion during the pulling phase. Listed because the exercise's joint_actions include elbow flexion, and an action with no muscle assigned to produce it is a data inconsistency."
+      }
+    ],
+    "colloquial_region_tag": "全背",
+    "source_refs": [
+      "https://exrx.net/WeightExercises/BackGeneral/DBBentOverRow (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "exercise_id": "standing_shoulder_press",
+    "name_en": "Standing Barbell Shoulder Press",
+    "name_zh": "站姿肩推",
+    "equipment_type": "barbell",
+    "movement_plane": "frontal-to-sagittal (scapular plane)",
+    "joint_actions": [
+      "shoulder abduction/flexion",
+      "elbow extension",
+      "scapular upward rotation"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "deltoid_anterior",
+        "role": "prime_mover",
+        "note": "Primary shoulder flexor/abductor."
+      },
+      {
+        "muscle_id": "deltoid_lateral",
+        "role": "synergist",
+        "note": "Assists, but less than anterior in standard grip."
+      },
+      {
+        "muscle_id": "triceps_brachii",
+        "role": "synergist",
+        "note": "Primary elbow extensor."
+      },
+      {
+        "muscle_id": "erector_spinae",
+        "role": "stabilizer",
+        "note": "Contracts isometrically to hold the trunk upright (spinal extensors). Note: resisting lumbar hyperextension under an overhead load is anti-extension work performed by the abdominal wall, not by erector spinae."
+      }
+    ],
+    "colloquial_region_tag": "前束",
+    "source_refs": [
+      "Saeterbakken et al., Journal of Strength and Conditioning Research 2013;27(7):1824-1831 (Effects of body position and loading modality on muscle activity and strength in shoulder presses); DOI: 10.1519/JSC.0b013e318276b873"
+    ],
+    "engagement_caveat": "Standing (vs seated) increases trunk stabiliser demand. Erector spinae holds the trunk upright; the abdominal wall resists the lumbar hyperextension that an overhead load encourages. Abdominal engagement is not itemised here because this dataset has no sourced EMG values for it in this exercise."
+  },
+  {
+    "exercise_id": "lateral_raise",
+    "name_en": "Dumbbell Lateral Raise",
+    "name_zh": "側平舉",
+    "equipment_type": "dumbbell",
+    "movement_plane": "frontal",
+    "joint_actions": [
+      "shoulder abduction"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "deltoid_lateral",
+        "role": "prime_mover",
+        "note": "Highly targets the lateral deltoid in frontal or scapular plane."
+      },
+      {
+        "muscle_id": "deltoid_anterior",
+        "role": "synergist",
+        "note": "Assists especially if externally rotated."
+      },
+      {
+        "muscle_id": "supraspinatus",
+        "role": "synergist",
+        "note": "Initiates abduction (first 15-30 degrees)."
+      }
+    ],
+    "colloquial_region_tag": "中束",
+    "source_refs": [
+      "https://exrx.net/WeightExercises/DeltoidLateral/DBLateralRaise (fetched 2026-08-01)",
+      "Coratella et al., International Journal of Environmental Research and Public Health 2020;17(17):6015 (An Electromyographic Analysis of Lateral Raise Variations and Frontal Raise in Competitive Bodybuilders); DOI: 10.3390/ijerph17176015"
+    ]
+  },
+  {
+    "exercise_id": "front_raise",
+    "name_en": "Dumbbell Front Raise",
+    "name_zh": "前平舉",
+    "equipment_type": "dumbbell",
+    "movement_plane": "sagittal",
+    "joint_actions": [
+      "shoulder flexion"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "deltoid_anterior",
+        "role": "prime_mover",
+        "note": "Primary shoulder flexor."
+      }
+    ],
+    "colloquial_region_tag": "前束",
+    "engagement_caveat": "Often considered redundant if the training program already includes significant pressing (bench press, shoulder press), which heavily targets the anterior deltoid.",
+    "source_refs": [
+      "https://exrx.net/WeightExercises/DeltoidAnterior/DBFrontRaise (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "exercise_id": "reverse_fly",
+    "name_en": "Reverse Machine Fly",
+    "name_zh": "反向飛鳥",
+    "equipment_type": "machine",
+    "movement_plane": "transverse",
+    "joint_actions": [
+      "shoulder horizontal abduction"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "deltoid_posterior",
+        "role": "prime_mover",
+        "note": "Primary horizontal abductor."
+      },
+      {
+        "muscle_id": "infraspinatus",
+        "role": "synergist",
+        "note": "Assists in horizontal abduction and external rotation."
+      },
+      {
+        "muscle_id": "teres_minor",
+        "role": "synergist",
+        "note": "Assists in horizontal abduction."
+      },
+      {
+        "muscle_id": "rhomboids",
+        "role": "synergist",
+        "note": "Scapular retraction."
+      }
+    ],
+    "colloquial_region_tag": "後束",
+    "source_refs": [
+      "Franke et al., Journal of Sports Medicine and Physical Fitness 2015;55(7-8):714-721 (Analysis of anterior, middle and posterior deltoid activation...)"
+    ]
+  },
+  {
+    "exercise_id": "barbell_squat",
+    "name_en": "Barbell Back Squat",
+    "name_zh": "槓鈴深蹲",
+    "equipment_type": "barbell",
+    "movement_plane": "sagittal",
+    "joint_actions": [
+      "hip extension",
+      "knee extension",
+      "ankle plantarflexion"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "vastus_muscles",
+        "role": "prime_mover",
+        "note": "Primary knee extensors. High activation compared to other leg exercises."
+      },
+      {
+        "muscle_id": "gluteus_maximus",
+        "role": "prime_mover",
+        "note": "Primary hip extensor, heavily activated at depth (Caterisano et al. 2002)."
+      },
+      {
+        "muscle_id": "rectus_femoris",
+        "role": "synergist",
+        "note": "Less activated than vasti due to biarticular nature (shortening at hip, lengthening at knee)."
+      },
+      {
+        "muscle_id": "hamstrings",
+        "role": "stabilizer",
+        "note": "Acts to stabilize the knee, relatively low activation as prime movers in squats due to biarticular paradox."
+      },
+      {
+        "muscle_id": "adductor_magnus",
+        "role": "synergist",
+        "note": "Important hip extensor, especially at the bottom of the squat."
+      },
+      {
+        "muscle_id": "erector_spinae",
+        "role": "stabilizer",
+        "note": "Maintains isometric spinal extension."
+      }
+    ],
+    "colloquial_region_tag": "大腿前側",
+    "engagement_caveat": "Hamstrings are poorly stimulated for hypertrophy during squats (Kubo et al. 2019). Squats are primarily a quad/glute exercise.",
+    "source_refs": [
+      "Kubo et al., European Journal of Applied Physiology 2019;119(9):1933-1942 (Effects of squat training with different depths on lower limb muscle volumes); DOI: 10.1007/s00421-019-04181-y",
+      "Caterisano et al., Journal of Strength and Conditioning Research 2002;16(3):428-432 (The effect of back squat depth on the EMG activity); DOI: 10.1519/00124278-200208000-00014"
+    ]
+  },
+  {
+    "exercise_id": "barbell_deadlift",
+    "name_en": "Barbell Conventional Deadlift",
+    "name_zh": "槓鈴硬舉",
+    "equipment_type": "barbell",
+    "movement_plane": "sagittal",
+    "joint_actions": [
+      "hip extension",
+      "knee extension"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "gluteus_maximus",
+        "role": "prime_mover",
+        "note": "Primary hip extensor."
+      },
+      {
+        "muscle_id": "hamstrings",
+        "role": "synergist",
+        "note": "Phase-dependent synergist/dynamic stabilizer; contribution varies throughout the lift."
+      },
+      {
+        "muscle_id": "erector_spinae",
+        "role": "stabilizer",
+        "note": "Maintains isometric spinal extension, often the limiting factor."
+      },
+      {
+        "muscle_id": "vastus_muscles",
+        "role": "synergist",
+        "note": "Provides knee extension to lift off the floor."
+      }
+    ],
+    "colloquial_region_tag": "後側鍊",
+    "source_refs": [
+      "https://exrx.net/WeightExercises/GluteusMaximus/BBDeadlift (fetched 2026-08-01)",
+      "Martin-Fuentes et al., PLoS One 2020;15(2):e0229507 (Electromyographic activity in deadlift exercise and its variants. A systematic review); DOI: 10.1371/journal.pone.0229507"
+    ]
+  },
+  {
+    "exercise_id": "leg_press",
+    "name_en": "45-Degree Leg Press",
+    "name_zh": "腿推",
+    "equipment_type": "machine",
+    "movement_plane": "sagittal",
+    "joint_actions": [
+      "hip extension",
+      "knee extension"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "vastus_muscles",
+        "role": "prime_mover",
+        "note": "Primary knee extensors."
+      },
+      {
+        "muscle_id": "gluteus_maximus",
+        "role": "synergist",
+        "note": "Hip extension contribution varies with foot placement (higher feet = more glutes/hamstrings)."
+      }
+    ],
+    "colloquial_region_tag": "大腿前側",
+    "source_refs": [
+      "https://exrx.net/WeightExercises/Quadriceps/LV45LegPress (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "exercise_id": "leg_extension",
+    "name_en": "Seated Leg Extension",
+    "name_zh": "腿伸展",
+    "equipment_type": "machine",
+    "movement_plane": "sagittal",
+    "joint_actions": [
+      "knee extension"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "vastus_muscles",
+        "role": "prime_mover",
+        "note": "Isolates knee extension."
+      },
+      {
+        "muscle_id": "rectus_femoris",
+        "role": "prime_mover",
+        "note": "Highly activated compared to squats due to hip being flexed and stable."
+      }
+    ],
+    "colloquial_region_tag": "大腿前側",
+    "source_refs": [
+      "https://exrx.net/WeightExercises/Quadriceps/LVLegExtension (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "exercise_id": "leg_curl",
+    "name_en": "Seated Leg Curl",
+    "name_zh": "腿彎舉",
+    "equipment_type": "machine",
+    "movement_plane": "sagittal",
+    "joint_actions": [
+      "knee flexion"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "hamstrings",
+        "role": "prime_mover",
+        "note": "Seated version places hamstrings at a longer muscle length, enhancing hypertrophy (Maeo et al. 2021)."
+      }
+    ],
+    "colloquial_region_tag": "大腿後側",
+    "engagement_caveat": "Seated leg curl provides greater hypertrophy for hamstrings than prone leg curl due to the stretch-mediated hypertrophy effect (Maeo et al. 2021).",
+    "source_refs": [
+      "Maeo et al., Medicine & Science in Sports & Exercise 2021;53(4):825-837 (Greater Hamstrings Muscle Hypertrophy but Similar Damage Protection after Training at Long versus Short Muscle Lengths); DOI: 10.1249/MSS.0000000000002523"
+    ]
+  },
+  {
+    "exercise_id": "barbell_hip_thrust",
+    "name_en": "Barbell Hip Thrust",
+    "name_zh": "槓鈴臀推",
+    "equipment_type": "barbell",
+    "movement_plane": "sagittal",
+    "joint_actions": [
+      "hip extension"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "gluteus_maximus",
+        "role": "prime_mover",
+        "note": "High peak EMG activation at end-range of hip extension."
+      },
+      {
+        "muscle_id": "hamstrings",
+        "role": "synergist",
+        "note": "Contributes to hip extension but reduced efficacy due to bent knees (active insufficiency)."
+      }
+    ],
+    "colloquial_region_tag": "臀部",
+    "engagement_caveat": "Despite higher EMG activation than squats in some studies (Contreras et al. 2015), recent matched-volume trials (Plotkin et al. 2023) show similar gluteal hypertrophy outcomes between squats and hip thrusts. The 'activation gap' does not necessarily translate to a 'growth gap'.",
+    "source_refs": [
+      "Plotkin et al., Frontiers in Physiology 2023;14:1279170 (Hip thrust and back squat training elicit similar gluteus muscle hypertrophy...); DOI: 10.3389/fphys.2023.1279170",
+      "Contreras et al., Journal of Applied Biomechanics 2015;31(6):452-458; DOI: 10.1123/jab.2014-0301"
+    ]
+  },
+  {
+    "exercise_id": "crunch",
+    "name_en": "Abdominal Crunch",
+    "name_zh": "捲腹",
+    "equipment_type": "bodyweight",
+    "movement_plane": "sagittal",
+    "joint_actions": [
+      "spinal flexion"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "rectus_abdominis",
+        "role": "prime_mover",
+        "note": "Primary spinal flexor."
+      },
+      {
+        "muscle_id": "obliques",
+        "role": "synergist",
+        "note": "Assists in spinal flexion."
+      }
+    ],
+    "colloquial_region_tag": "核心",
+    "source_refs": [
+      "https://exrx.net/WeightExercises/RectusAbdominis/BWCrunch"
+    ]
+  },
+  {
+    "exercise_id": "plank",
+    "name_en": "Front Plank",
+    "name_zh": "棒式",
+    "equipment_type": "bodyweight",
+    "movement_plane": "isometric",
+    "joint_actions": [
+      "isometric spinal stabilization"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "rectus_abdominis",
+        "role": "stabilizer",
+        "note": "Resists spinal extension."
+      },
+      {
+        "muscle_id": "transversus_abdominis",
+        "role": "stabilizer",
+        "note": "Resists abdominal distension, compresses viscera."
+      },
+      {
+        "muscle_id": "obliques",
+        "role": "stabilizer",
+        "note": "Assists in preventing extension/rotation."
+      }
+    ],
+    "colloquial_region_tag": "核心",
+    "source_refs": [
+      "https://exrx.net/WeightExercises/RectusAbdominis/BWFrontPlank (fetched 2026-08-01)"
+    ]
+  },
+  {
+    "exercise_id": "hanging_leg_raise",
+    "name_en": "Hanging Leg Raise",
+    "name_zh": "懸垂舉腿",
+    "equipment_type": "bodyweight",
+    "movement_plane": "sagittal",
+    "joint_actions": [
+      "hip flexion"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "iliopsoas",
+        "role": "prime_mover",
+        "note": "Primary hip flexor initiating the leg raise."
+      },
+      {
+        "muscle_id": "rectus_femoris",
+        "role": "prime_mover",
+        "note": "Assists in hip flexion, particularly with straight legs."
+      },
+      {
+        "muscle_id": "rectus_abdominis",
+        "role": "stabilizer",
+        "note": "Acts isometrically to maintain posterior pelvic tilt and prevent lumbar extension. Becomes a prime mover only if actively curling the pelvis upward."
+      },
+      {
+        "muscle_id": "obliques",
+        "role": "stabilizer",
+        "note": "Assists in maintaining pelvic position and resisting extension."
+      }
+    ],
+    "colloquial_region_tag": "核心／髖屈",
+    "engagement_caveat": "Two distinct variants. Base version (shown here): straight-leg raise driven by hip flexors, with the abdominals working isometrically to hold posterior pelvic tilt and prevent lumbar extension. Pelvic-curl variant: a deliberate posterior pelvic tilt/spinal flexion is added, and rectus abdominis then becomes a prime mover for that component. Do not present this exercise as isolating the 'lower abs' -- that regional distinction is not supported. Hanging also imposes an isometric shoulder-girdle and grip demand; that is a stabilisation requirement, not a joint action of the exercise, and the muscles responsible are not itemised here.",
+    "source_refs": [
+      "https://exrx.net/WeightExercises/HipFlexors/BWHangingLegRaise"
+    ]
+  },
+  {
+    "exercise_id": "barbell_curl",
+    "name_en": "Barbell Curl",
+    "name_zh": "槓鈴彎舉",
+    "equipment_type": "barbell",
+    "movement_plane": "sagittal",
+    "joint_actions": [
+      "elbow flexion"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "biceps_brachii",
+        "role": "prime_mover",
+        "note": "Primary elbow flexor."
+      },
+      {
+        "muscle_id": "brachialis",
+        "role": "synergist",
+        "note": "Strong elbow flexor active in all forearm positions."
+      },
+      {
+        "muscle_id": "brachioradialis",
+        "role": "synergist",
+        "note": "Assists in elbow flexion."
+      }
+    ],
+    "colloquial_region_tag": "二頭肌",
+    "source_refs": [
+      "https://exrx.net/WeightExercises/Biceps/BBCurl",
+      "Moore KL, Dalley AF, Agur AMR. Clinically Oriented Anatomy. 8th ed. Lippincott Williams & Wilkins; 2017."
+    ]
+  },
+  {
+    "exercise_id": "dumbbell_incline_curl",
+    "name_en": "Incline Dumbbell Curl",
+    "name_zh": "上斜啞鈴彎舉",
+    "equipment_type": "dumbbell",
+    "movement_plane": "sagittal",
+    "joint_actions": [
+      "elbow flexion"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "biceps_brachii",
+        "role": "prime_mover",
+        "note": "Primary elbow flexor."
+      },
+      {
+        "muscle_id": "brachialis",
+        "role": "synergist",
+        "note": "Strong elbow flexor."
+      },
+      {
+        "muscle_id": "brachioradialis",
+        "role": "synergist",
+        "note": "Assists in elbow flexion."
+      }
+    ],
+    "colloquial_region_tag": "二頭肌",
+    "engagement_caveat": "Because the long head of the biceps brachii crosses the shoulder joint, performing curls with the shoulder in extension (such as on an incline bench) places the muscle at a longer length. However, an 8-week RCT found greater proximal elbow flexor (not isolated to biceps long head) thickness increase for incline versus preacher curls without proving this specific mechanism, while EMG studies show similar full-ROM activation patterns between incline and standard dumbbell curls.",
+    "source_refs": [
+      "https://exrx.net/WeightExercises/Biceps/DBInclineCurl",
+      "Oliveira et al., Journal of Sports Science & Medicine 2009;8(1):24-29 (Effect of the shoulder position on the biceps brachii EMG in different dumbbell curls); PMID: 24150552",
+      "Kassiano et al., International Journal of Sports Medicine 2025 (Distinct muscle growth and strength adaptations after preacher and incline biceps curl); DOI: 10.1055/a-2517-0509"
+    ]
+  },
+  {
+    "exercise_id": "dumbbell_hammer_curl",
+    "name_en": "Dumbbell Hammer Curl",
+    "name_zh": "啞鈴錘式彎舉",
+    "equipment_type": "dumbbell",
+    "movement_plane": "sagittal",
+    "joint_actions": [
+      "elbow flexion"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "brachioradialis",
+        "role": "prime_mover",
+        "note": "Primary elbow flexor."
+      },
+      {
+        "muscle_id": "brachialis",
+        "role": "prime_mover",
+        "note": "Strong elbow flexor active in all forearm positions."
+      },
+      {
+        "muscle_id": "biceps_brachii",
+        "role": "synergist",
+        "note": "Assists in elbow flexion."
+      }
+    ],
+    "colloquial_region_tag": "二頭肌／前臂",
+    "source_refs": [
+      "https://exrx.net/WeightExercises/Brachioradialis/DBHammerCurl",
+      "Moore KL, Dalley AF, Agur AMR. Clinically Oriented Anatomy. 8th ed. Lippincott Williams & Wilkins; 2017."
+    ]
+  },
+  {
+    "exercise_id": "cable_triceps_pushdown",
+    "name_en": "Cable Triceps Pushdown",
+    "name_zh": "滑輪三頭下壓",
+    "equipment_type": "cable",
+    "movement_plane": "sagittal",
+    "joint_actions": [
+      "elbow extension"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "triceps_brachii",
+        "role": "prime_mover",
+        "note": "Primary elbow extensor."
+      },
+      {
+        "muscle_id": "anconeus",
+        "role": "synergist",
+        "note": "Assists in elbow extension."
+      }
+    ],
+    "colloquial_region_tag": "三頭肌",
+    "source_refs": [
+      "https://exrx.net/WeightExercises/Triceps/CBPushdown",
+      "Moore KL, Dalley AF, Agur AMR. Clinically Oriented Anatomy. 8th ed. Lippincott Williams & Wilkins; 2017."
+    ]
+  },
+  {
+    "exercise_id": "barbell_lying_triceps_extension",
+    "name_en": "Barbell Lying Triceps Extension",
+    "name_zh": "仰臥臂屈伸",
+    "equipment_type": "barbell",
+    "movement_plane": "sagittal",
+    "joint_actions": [
+      "elbow extension"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "triceps_brachii",
+        "role": "prime_mover",
+        "note": "Primary elbow extensor."
+      },
+      {
+        "muscle_id": "anconeus",
+        "role": "synergist",
+        "note": "Assists in elbow extension."
+      }
+    ],
+    "colloquial_region_tag": "三頭肌",
+    "source_refs": [
+      "https://exrx.net/WeightExercises/Triceps/BBLyingTricepsExtension",
+      "Moore KL, Dalley AF, Agur AMR. Clinically Oriented Anatomy. 8th ed. Lippincott Williams & Wilkins; 2017."
+    ]
+  },
+  {
+    "exercise_id": "overhead_triceps_extension",
+    "name_en": "Overhead Triceps Extension",
+    "name_zh": "過頭三頭伸展",
+    "equipment_type": "cable",
+    "movement_plane": "sagittal",
+    "joint_actions": [
+      "elbow extension"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "triceps_brachii",
+        "role": "prime_mover",
+        "note": "Primary elbow extensor."
+      },
+      {
+        "muscle_id": "anconeus",
+        "role": "synergist",
+        "note": "Assists in elbow extension."
+      }
+    ],
+    "colloquial_region_tag": "三頭肌",
+    "engagement_caveat": "Because the long head of the triceps brachii crosses the shoulder joint, performing elbow extension with the shoulder flexed (overhead position) places the long head in a lengthened state. A 12-week study on 21 adults showed this cable protocol led to substantially greater triceps hypertrophy compared to neutral-arm pushdowns, though this specific magnitude may not universally apply to all overhead variations.",
+    "source_refs": [
+      "https://exrx.net/WeightExercises/Triceps/CBOverheadTricepsExt",
+      "Maeo et al., European Journal of Sport Science 2023;23(7):1240-1250 (Triceps brachii hypertrophy is substantially greater after elbow extension training performed in the overhead versus neutral arm position); PMID: 35819335, DOI: 10.1080/17461391.2022.2100279"
+    ]
+  }
+]

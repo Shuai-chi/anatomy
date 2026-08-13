@@ -1,0 +1,86 @@
+[
+  {
+    "exercise_id": "straight_arm_pulldown",
+    "name_en": "Straight-Arm Pulldown",
+    "name_zh": "直臂下壓",
+    "equipment_type": "cable",
+    "movement_plane": "sagittal",
+    "joint_actions": [
+      "shoulder extension"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "latissimus_dorsi",
+        "role": "prime_mover",
+        "note": "Shoulder extension in isolation."
+      },
+      {
+        "muscle_id": "triceps_brachii",
+        "role": "stabilizer",
+        "note": "Long head acts isometrically to keep elbow extended."
+      }
+    ],
+    "colloquial_region_tag": "背闊肌",
+    "source_refs": []
+  },
+  {
+    "exercise_id": "face_pull",
+    "name_en": "Cable Face Pull",
+    "name_zh": "面拉",
+    "equipment_type": "cable",
+    "movement_plane": "transverse",
+    "joint_actions": [
+      "shoulder horizontal abduction",
+      "shoulder external rotation",
+      "scapular retraction"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "deltoid_posterior",
+        "role": "prime_mover",
+        "note": "Horizontal abduction."
+      },
+      {
+        "muscle_id": "infraspinatus",
+        "role": "synergist",
+        "note": "External rotation at the shoulder."
+      },
+      {
+        "muscle_id": "trapezius_middle",
+        "role": "synergist",
+        "note": "Scapular retraction."
+      },
+      {
+        "muscle_id": "rhomboids",
+        "role": "synergist",
+        "note": "Scapular retraction."
+      }
+    ],
+    "colloquial_region_tag": "後束",
+    "source_refs": []
+  },
+  {
+    "exercise_id": "russian_twist",
+    "name_en": "Russian Twist",
+    "name_zh": "俄羅斯轉體",
+    "equipment_type": "bodyweight",
+    "movement_plane": "transverse",
+    "joint_actions": [
+      "spinal rotation"
+    ],
+    "muscle_engagement": [
+      {
+        "muscle_id": "obliques",
+        "role": "prime_mover",
+        "note": "Primary rotators of the spine."
+      },
+      {
+        "muscle_id": "rectus_abdominis",
+        "role": "stabilizer",
+        "note": "Maintains isometric flexion to hold the torso up."
+      }
+    ],
+    "colloquial_region_tag": "側腹",
+    "source_refs": []
+  }
+]

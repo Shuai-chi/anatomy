@@ -27,7 +27,7 @@ PWA manifest 使用深色主題 `#0b1020`。Service worker 不會在安裝時 pr
 
 ## 資料與驗證
 
-產品內 30 個動作經四輪跨模型資料驗證後納入。驗證報告及機械檢查工具保留於 `04_Management/plan/_temp/anatomy_app/data_verification/`，包括最終裁定 `WP4_round4_FINAL_verdict_2026-08-02.md` 與手臂群最終裁定 `WP4_arms_FINAL_verdict_2026-08-02.md`。
+產品內 30 個動作經四輪跨模型資料驗證後納入。驗證報告及機械檢查工具保留於本 repo 的 [`data_verification/`](data_verification/)，包括最終裁定 [`WP4_round4_FINAL_verdict_2026-08-02.md`](data_verification/WP4_round4_FINAL_verdict_2026-08-02.md) 與手臂群最終裁定 [`WP4_arms_FINAL_verdict_2026-08-02.md`](data_verification/WP4_arms_FINAL_verdict_2026-08-02.md)。
 
 ## 已知限制
 
